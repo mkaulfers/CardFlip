@@ -47,73 +47,141 @@
                                         <rect key="frame" x="199.66666666666666" y="68.666666666666629" width="15" height="495"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="001" translatesAutoresizingMaskIntoConstraints="NO" id="fZB-kP-zol" userLabel="Card1">
+                                    <imageView clipsSubviews="YES" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="001" translatesAutoresizingMaskIntoConstraints="NO" id="fZB-kP-zol" userLabel="Card1">
                                         <rect key="frame" x="34.666666666666657" y="98.666666666666657" width="75" height="75"/>
                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="f9A-XG-OW1" appends="YES" id="pd1-3a-jxP"/>
+                                        </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="k025" translatesAutoresizingMaskIntoConstraints="NO" id="URg-dq-bbo" userLabel="Card2">
+                                    <imageView clipsSubviews="YES" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="k025" translatesAutoresizingMaskIntoConstraints="NO" id="URg-dq-bbo" userLabel="Card2">
                                         <rect key="frame" x="124.66666666666669" y="98.666666666666657" width="75" height="75"/>
                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="d9b-LC-VCd" appends="YES" id="DgR-mW-wOm"/>
+                                        </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="k009" translatesAutoresizingMaskIntoConstraints="NO" id="aAm-VX-Ddk" userLabel="Card3">
+                                    <imageView clipsSubviews="YES" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="k009" translatesAutoresizingMaskIntoConstraints="NO" id="aAm-VX-Ddk" userLabel="Card3">
                                         <rect key="frame" x="214.66666666666666" y="98.666666666666657" width="74.999999999999972" height="75"/>
                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="QVB-ho-Jqx" appends="YES" id="nbP-ji-lcS"/>
+                                        </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HuA-Zr-gGf" userLabel="Card4">
+                                    <imageView clipsSubviews="YES" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HuA-Zr-gGf" userLabel="Card4">
                                         <rect key="frame" x="304.66666666666669" y="98.666666666666657" width="75" height="75"/>
                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="0gF-NK-afc" appends="YES" id="bSg-1b-xFl"/>
+                                        </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Ge-iX-ara" userLabel="Card5">
+                                    <imageView clipsSubviews="YES" tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Ge-iX-ara" userLabel="Card5">
                                         <rect key="frame" x="34.666666666666657" y="188.66666666666669" width="75" height="75"/>
                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Weo-Si-dwt" appends="YES" id="QWy-yz-TlE"/>
+                                        </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="El2-cF-rnN" userLabel="Card6">
+                                    <imageView clipsSubviews="YES" tag="6" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="El2-cF-rnN" userLabel="Card6">
                                         <rect key="frame" x="124.66666666666669" y="188.66666666666669" width="75" height="75"/>
                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="a4C-Zx-lfO" appends="YES" id="Pmm-y3-Vgr"/>
+                                        </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dB1-Db-fQG" userLabel="Card7">
+                                    <imageView clipsSubviews="YES" tag="7" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dB1-Db-fQG" userLabel="Card7">
                                         <rect key="frame" x="214.66666666666666" y="188.66666666666669" width="74.999999999999972" height="75"/>
                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="3IO-oY-Pqx" appends="YES" id="Dr7-b7-5mx"/>
+                                        </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MSY-cw-DBX" userLabel="Card8">
+                                    <imageView clipsSubviews="YES" tag="8" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MSY-cw-DBX" userLabel="Card8">
                                         <rect key="frame" x="304.66666666666669" y="188.66666666666669" width="75" height="75"/>
                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="jOf-2w-HyP" appends="YES" id="3yE-oI-vqg"/>
+                                        </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aJd-6R-LSZ" userLabel="Card9">
+                                    <imageView clipsSubviews="YES" tag="9" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aJd-6R-LSZ" userLabel="Card9">
                                         <rect key="frame" x="34.666666666666657" y="278.66666666666669" width="75" height="75"/>
                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="cvQ-y7-xtx" appends="YES" id="Cjs-lo-zvk"/>
+                                        </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i7k-ZI-tNO" userLabel="Card10">
+                                    <imageView clipsSubviews="YES" tag="10" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i7k-ZI-tNO" userLabel="Card10">
                                         <rect key="frame" x="124.66666666666669" y="278.66666666666669" width="75" height="75"/>
                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="ecb-qt-Bh6" appends="YES" id="4wk-jl-Ptv"/>
+                                        </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wzK-Rr-DPy" userLabel="Card12">
+                                    <imageView clipsSubviews="YES" tag="12" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wzK-Rr-DPy" userLabel="Card12">
                                         <rect key="frame" x="304.66666666666669" y="278.66666666666669" width="75" height="75"/>
                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="PI2-n0-blq" appends="YES" id="bGt-ML-pGf"/>
+                                        </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eyv-Zv-lbb" userLabel="Card15">
+                                    <imageView clipsSubviews="YES" tag="15" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eyv-Zv-lbb" userLabel="Card15">
                                         <rect key="frame" x="214.66666666666666" y="368.66666666666669" width="74.999999999999972" height="75"/>
                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="f8X-nE-zJ7" appends="YES" id="k0H-xG-U5g"/>
+                                        </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tuk-rM-9R7" userLabel="Card16">
+                                    <imageView clipsSubviews="YES" tag="16" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tuk-rM-9R7" userLabel="Card16">
                                         <rect key="frame" x="304.66666666666669" y="368.66666666666669" width="75" height="75"/>
                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="HSz-eE-VKr" appends="YES" id="c7H-Ar-d9C"/>
+                                        </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iq1-FT-eAJ" userLabel="Card17">
+                                    <imageView clipsSubviews="YES" tag="17" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iq1-FT-eAJ" userLabel="Card17">
                                         <rect key="frame" x="34.666666666666657" y="458.66666666666663" width="75" height="75"/>
                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="5qz-If-lqr" appends="YES" id="DSE-Y3-0pl"/>
+                                        </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ps1-CR-05c" userLabel="Card18">
+                                    <imageView clipsSubviews="YES" tag="18" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ps1-CR-05c" userLabel="Card18">
                                         <rect key="frame" x="124.66666666666669" y="458.66666666666663" width="75" height="75"/>
                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="NHf-Q4-CvR" appends="YES" id="96s-eu-gff"/>
+                                        </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e9e-FN-AKo" userLabel="Card19">
+                                    <imageView clipsSubviews="YES" tag="19" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e9e-FN-AKo" userLabel="Card19">
                                         <rect key="frame" x="214.66666666666666" y="458.66666666666663" width="74.999999999999972" height="75"/>
                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="hwb-0y-qXe" appends="YES" id="Nxp-He-sl4"/>
+                                        </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HZ6-TD-imb" userLabel="Card20">
+                                    <imageView clipsSubviews="YES" tag="20" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HZ6-TD-imb" userLabel="Card20">
                                         <rect key="frame" x="304.66666666666669" y="458.66666666666663" width="75" height="75"/>
                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Lkt-TI-TaD" appends="YES" id="bwo-6k-KJQ"/>
+                                        </connections>
                                     </imageView>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JdD-GW-fxO">
                                         <rect key="frame" x="5" y="5" width="404" height="32"/>
@@ -127,17 +195,29 @@
                                         </segments>
                                         <color key="selectedSegmentTintColor" red="0.0" green="0.63529411759999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </segmentedControl>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vbV-6t-D1y" userLabel="Card11">
+                                    <imageView clipsSubviews="YES" tag="11" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vbV-6t-D1y" userLabel="Card11">
                                         <rect key="frame" x="214.66666666666666" y="278.66666666666669" width="74.999999999999972" height="75"/>
                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="AlV-35-RLB" appends="YES" id="mzh-0N-u1a"/>
+                                        </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FPv-YR-lmD" userLabel="Card14">
+                                    <imageView clipsSubviews="YES" tag="14" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FPv-YR-lmD" userLabel="Card14">
                                         <rect key="frame" x="124.66666666666669" y="368.66666666666669" width="75" height="75"/>
                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="7gA-8R-qHr" appends="YES" id="hmG-cN-eTK"/>
+                                        </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sav-Vm-kzk" userLabel="Card13">
+                                    <imageView clipsSubviews="YES" tag="13" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sav-Vm-kzk" userLabel="Card13">
                                         <rect key="frame" x="34.666666666666657" y="368.66666666666669" width="75" height="75"/>
                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="IDy-ux-l9a" appends="YES" id="0Vg-tF-9e1"/>
+                                        </connections>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -240,9 +320,14 @@
                                     </imageView>
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlayButton" translatesAutoresizingMaskIntoConstraints="NO" id="bVJ-Ha-rHr">
                                         <rect key="frame" x="114" y="0.0" width="113" height="128"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="BM7-uY-My9" appends="YES" id="YAw-Av-Pvx"/>
+                                        </connections>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="bVJ-Ha-rHr" firstAttribute="centerX" secondItem="uaL-zW-LYA" secondAttribute="centerX" id="3JJ-g0-7hY"/>
                                     <constraint firstItem="bVJ-Ha-rHr" firstAttribute="centerY" secondItem="uaL-zW-LYA" secondAttribute="centerY" id="5IF-5e-Osk"/>
@@ -277,8 +362,137 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="card10View" destination="i7k-ZI-tNO" id="TRB-7I-nDW"/>
+                        <outlet property="card11View" destination="vbV-6t-D1y" id="GnV-GB-n2y"/>
+                        <outlet property="card12View" destination="wzK-Rr-DPy" id="BOI-wc-A5I"/>
+                        <outlet property="card13View" destination="sav-Vm-kzk" id="hGf-i7-xAW"/>
+                        <outlet property="card14View" destination="FPv-YR-lmD" id="nYl-qZ-IS3"/>
+                        <outlet property="card15View" destination="eyv-Zv-lbb" id="dDF-AA-ef3"/>
+                        <outlet property="card16View" destination="tuk-rM-9R7" id="8X8-Vp-MLC"/>
+                        <outlet property="card17View" destination="iq1-FT-eAJ" id="nBQ-DB-13w"/>
+                        <outlet property="card18View" destination="ps1-CR-05c" id="6bE-qs-Rcr"/>
+                        <outlet property="card19View" destination="e9e-FN-AKo" id="J41-xd-hxr"/>
+                        <outlet property="card1View" destination="fZB-kP-zol" id="TNa-il-wab"/>
+                        <outlet property="card20View" destination="HZ6-TD-imb" id="ruB-VO-cAU"/>
+                        <outlet property="card2View" destination="URg-dq-bbo" id="2V4-Ab-CWY"/>
+                        <outlet property="card3View" destination="aAm-VX-Ddk" id="ihc-dV-cg2"/>
+                        <outlet property="card4View" destination="HuA-Zr-gGf" id="pfE-Fa-pAq"/>
+                        <outlet property="card5View" destination="7Ge-iX-ara" id="OrI-SK-QNX"/>
+                        <outlet property="card6View" destination="El2-cF-rnN" id="t6H-Kg-TgJ"/>
+                        <outlet property="card7View" destination="dB1-Db-fQG" id="6iq-20-cIo"/>
+                        <outlet property="card8View" destination="MSY-cw-DBX" id="VBz-XJ-fw0"/>
+                        <outlet property="card9View" destination="aJd-6R-LSZ" id="rQz-hL-zio"/>
+                        <outlet property="cardTypeSelection" destination="JdD-GW-fxO" id="xll-Th-mOt"/>
+                        <outlet property="playButtonView" destination="bVJ-Ha-rHr" id="hgE-et-o7T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="BM7-uY-My9" userLabel="PlayButton">
+                    <connections>
+                        <action selector="playButtonPressed" destination="BYZ-38-t0r" id="lks-sC-5f5"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="f9A-XG-OW1" userLabel="Card1">
+                    <connections>
+                        <action selector="card1Selected:" destination="BYZ-38-t0r" id="2S4-Ii-Q6G"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="d9b-LC-VCd" userLabel="Card2">
+                    <connections>
+                        <action selector="card2Selected:" destination="BYZ-38-t0r" id="2or-UK-oRA"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="QVB-ho-Jqx" userLabel="Card3">
+                    <connections>
+                        <action selector="card3Selected:" destination="BYZ-38-t0r" id="j3J-OA-hRG"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="0gF-NK-afc" userLabel="Card4">
+                    <connections>
+                        <action selector="card4Selected:" destination="BYZ-38-t0r" id="Hd0-RI-AVq"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Weo-Si-dwt" userLabel="Card5">
+                    <connections>
+                        <action selector="card5Selected:" destination="BYZ-38-t0r" id="kjd-fB-4ie"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="a4C-Zx-lfO" userLabel="Card6">
+                    <connections>
+                        <action selector="card6Selected:" destination="BYZ-38-t0r" id="gaG-es-7S2"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="3IO-oY-Pqx" userLabel="Card7">
+                    <connections>
+                        <action selector="card7Selected:" destination="BYZ-38-t0r" id="qfK-u0-xx7"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="jOf-2w-HyP" userLabel="Card8">
+                    <connections>
+                        <action selector="card8Selected:" destination="BYZ-38-t0r" id="Cw4-7K-pLh"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="cvQ-y7-xtx" userLabel="Card9">
+                    <connections>
+                        <action selector="card9Selected:" destination="BYZ-38-t0r" id="KTG-U0-eRs"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="ecb-qt-Bh6" userLabel="Card10">
+                    <connections>
+                        <action selector="card10Selected:" destination="BYZ-38-t0r" id="uaQ-Oo-rP4"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="AlV-35-RLB" userLabel="Card11">
+                    <connections>
+                        <action selector="card11Selected:" destination="BYZ-38-t0r" id="Z5n-RY-7Bt"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="PI2-n0-blq" userLabel="Card12">
+                    <connections>
+                        <action selector="card12Selected:" destination="BYZ-38-t0r" id="lxi-fw-iQc"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="IDy-ux-l9a" userLabel="Card13">
+                    <connections>
+                        <action selector="card13Selected:" destination="BYZ-38-t0r" id="Dgr-yV-lgt"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="7gA-8R-qHr" userLabel="Card14">
+                    <connections>
+                        <action selector="card14Selected:" destination="BYZ-38-t0r" id="Rr6-Oh-5vE"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="f8X-nE-zJ7" userLabel="Card15">
+                    <connections>
+                        <action selector="card15Selected:" destination="BYZ-38-t0r" id="eqR-u3-UeA"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="HSz-eE-VKr" userLabel="Card16">
+                    <connections>
+                        <action selector="card16Selected:" destination="BYZ-38-t0r" id="rMO-Cy-P1h"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="5qz-If-lqr" userLabel="Card17">
+                    <connections>
+                        <action selector="card17Selected:" destination="BYZ-38-t0r" id="eu0-xp-cRr"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="NHf-Q4-CvR" userLabel="Card18">
+                    <connections>
+                        <action selector="card18Selected:" destination="BYZ-38-t0r" id="rmm-LW-7Zb"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="hwb-0y-qXe" userLabel="Card19">
+                    <connections>
+                        <action selector="card19Selected:" destination="BYZ-38-t0r" id="Hzd-6N-wcc"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Lkt-TI-TaD" userLabel="Card20">
+                    <connections>
+                        <action selector="card20Selected:" destination="BYZ-38-t0r" id="ZAJ-hg-96D"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>

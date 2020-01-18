@@ -13,6 +13,7 @@
 		AE65521423D260D5002C78B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE65521223D260D5002C78B1 /* Main.storyboard */; };
 		AE65521623D260D7002C78B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE65521523D260D7002C78B1 /* Assets.xcassets */; };
 		AE65521923D260D7002C78B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE65521723D260D7002C78B1 /* LaunchScreen.storyboard */; };
+		AEB28D4523D3AEAB003C026F /* ShadowCornerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB28D4423D3AEAB003C026F /* ShadowCornerImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		AE65521523D260D7002C78B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE65521823D260D7002C78B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE65521A23D260D7002C78B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEB28D4423D3AEAB003C026F /* ShadowCornerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowCornerImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				AE65520E23D260D5002C78B1 /* SceneDelegate.swift */,
 				AE65521023D260D5002C78B1 /* ViewController.swift */,
 				AE65521223D260D5002C78B1 /* Main.storyboard */,
+				AEB28D4423D3AEAB003C026F /* ShadowCornerImageView.swift */,
 				AE65521523D260D7002C78B1 /* Assets.xcassets */,
 				AE65521723D260D7002C78B1 /* LaunchScreen.storyboard */,
 				AE65521A23D260D7002C78B1 /* Info.plist */,
@@ -141,6 +144,7 @@
 				AE65521123D260D5002C78B1 /* ViewController.swift in Sources */,
 				AE65520D23D260D5002C78B1 /* AppDelegate.swift in Sources */,
 				AE65520F23D260D5002C78B1 /* SceneDelegate.swift in Sources */,
+				AEB28D4523D3AEAB003C026F /* ShadowCornerImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
