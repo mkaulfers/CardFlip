@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     //INFO: Other UI Variables
     @IBOutlet weak var playButtonView: UIImageView!
     @IBOutlet weak var cardTypeSelection: UISegmentedControl!
+    @IBOutlet weak var countdownTimer: UILabel!
     
     //INFO: Static Variables
     var cardsImages: [UIImage] = [UIImage]()
@@ -64,6 +65,8 @@ class ViewController: UIViewController {
     //MARK: - Custom Methods
     @IBAction func playButtonPressed()
     {
+        
+        
         DispatchQueue.global(qos: .default).async {
             for card in self.cardsPhone
             {
@@ -82,45 +85,74 @@ class ViewController: UIViewController {
     //MARK: - Play Logic
     var firstSelectedCard = UIImage()
     var secondSelectedCard = UIImage()
+    var firstSelectedTag = -1
     var cardsSelected = 0
     
     @objc func playCard(_ sender: UITapGestureRecognizer)
     {
-        
-        
         print("Hit playCard")
         if let selectedCard = sender.view?.tag
         {
-            if cardsSelected == 0
+            flipCard(sender: cardsPhone[selectedCard])
+            
+            
+            if self.cardsSelected == 0
             {
+                //INFO: Set the tag for future use.
+                self.firstSelectedTag = selectedCard
+                
+                //INFO: Disable use of the selected card.
+                self.cardsPhone[selectedCard].isUserInteractionEnabled = false
+                
                 //INFO: Store first selection.
-                firstSelectedCard = cardsImages[selectedCard]
+                self.firstSelectedCard = self.cardsImages[selectedCard]
                 
                 //INFO: Advance to next card.
-                cardsSelected += 1
-                
-                flipCard(sender: cardsPhone[selectedCard])
+                self.cardsSelected += 1
             }
-            else if cardsSelected == 1
+            else if self.cardsSelected == 1
             {
-                //INFO: Store second selection.
-                secondSelectedCard = cardsImages[selectedCard]
-                
-                //INFO: Check for match condition.
-                if firstSelectedCard == secondSelectedCard
+                //INFO: Disable use of the selected card.
+                for card in self.cardsPhone
                 {
-                    print("Match")
-                }
-                else{
-                    print("No match")
+                    card.isUserInteractionEnabled = false
                 }
                 
-                //INFO: Reset to a different attempt.
-                cardsSelected = 0
-                firstSelectedCard = UIImage()
-                secondSelectedCard = UIImage()
+                //INFO: Store second selection.
+                self.secondSelectedCard = self.cardsImages[selectedCard]
                 
-                flipCard(sender: cardsPhone[selectedCard])
+                DispatchQueue.main.asyncAfter(deadline: .now()+1)
+                {
+                    //INFO: Check for match condition.
+                    if self.firstSelectedCard == self.secondSelectedCard
+                    {
+                        print("Match")
+                        self.cardsPhone[self.firstSelectedTag].isHidden = true
+                        self.cardsPhone[selectedCard].isHidden = true
+                        
+                    }
+                    else{
+                        print("No match")
+                        
+                        //INFO: Re-enable selection because no match.
+                        self.cardsPhone[self.firstSelectedTag].isUserInteractionEnabled = true
+                        self.cardsPhone[selectedCard].isUserInteractionEnabled = true
+                        
+                        //INFO: Flip them back over.
+                        self.flipCard(sender: self.cardsPhone[self.firstSelectedTag])
+                        self.flipCard(sender: self.cardsPhone[selectedCard])
+                    }
+                    
+                    //INFO: Reset to a different attempt.
+                    self.firstSelectedTag = -1
+                    self.cardsSelected = 0
+                    self.firstSelectedCard = UIImage()
+                    self.secondSelectedCard = UIImage()
+                    for card in self.cardsPhone
+                    {
+                        card.isUserInteractionEnabled = true
+                    }
+                }
             }
         }
     }
@@ -148,8 +180,17 @@ class ViewController: UIViewController {
     //MARK: - Animations
     func flipCard(sender: UIImageView)
     {
-        sender.image = UIImage()
-        UIView.transition(with: sender, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+        if sender.image == UIImage()
+        {
+            sender.image = cardsImages[sender.tag]
+            UIView.transition(with: sender, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+        }
+        else
+        {
+            sender.image = UIImage()
+            UIView.transition(with: sender, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+        }
+        
     }
 }
 

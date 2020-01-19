@@ -47,21 +47,6 @@
                                         <rect key="frame" x="199.66666666666666" y="68.666666666666629" width="15" height="495"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JdD-GW-fxO">
-                                        <rect key="frame" x="5" y="5" width="404" height="32"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <segments>
-                                            <segment title="Robots"/>
-                                            <segment title="Kittens"/>
-                                            <segment title="Monsters"/>
-                                            <segment title="Portraits"/>
-                                            <segment title="Generate"/>
-                                        </segments>
-                                        <color key="selectedSegmentTintColor" red="0.0" green="0.63529411759999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <connections>
-                                            <action selector="cardImageSetChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Wum-Ox-Ruy"/>
-                                        </connections>
-                                    </segmentedControl>
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fZB-kP-zol" userLabel="Card1">
                                         <rect key="frame" x="34.666666666666657" y="98.666666666666657" width="75" height="75"/>
                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -162,13 +147,36 @@
                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <gestureRecognizers/>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time: 0:00:000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="xYN-OW-baA">
+                                        <rect key="frame" x="20" y="10" width="374" height="30"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
+                                        <color key="textColor" red="0.99607843137254903" green="0.41568627450980389" blue="0.45490196078431372" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JdD-GW-fxO">
+                                        <rect key="frame" x="35" y="596" width="344" height="32"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <segments>
+                                            <segment title="Robots"/>
+                                            <segment title="Kittens"/>
+                                            <segment title="Monsters"/>
+                                            <segment title="Portraits"/>
+                                            <segment title="Generate"/>
+                                        </segments>
+                                        <color key="selectedSegmentTintColor" red="0.0" green="0.63529411759999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <action selector="cardImageSetChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Wum-Ox-Ruy"/>
+                                        </connections>
+                                    </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="aAm-VX-Ddk" firstAttribute="height" secondItem="dB1-Db-fQG" secondAttribute="height" id="0Qx-pE-gDj"/>
+                                    <constraint firstItem="xYN-OW-baA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fO0-rR-VUl" secondAttribute="leading" id="2a1-lU-VmU"/>
                                     <constraint firstItem="ps1-CR-05c" firstAttribute="top" secondItem="FPv-YR-lmD" secondAttribute="bottom" constant="15" id="2cP-rk-Ig0"/>
                                     <constraint firstItem="i7k-ZI-tNO" firstAttribute="centerY" secondItem="Zby-Id-4qw" secondAttribute="centerY" id="3Db-Jg-kMe"/>
                                     <constraint firstItem="HZ6-TD-imb" firstAttribute="top" secondItem="tuk-rM-9R7" secondAttribute="bottom" constant="15" id="41h-br-8Fc"/>
+                                    <constraint firstItem="xYN-OW-baA" firstAttribute="centerX" secondItem="fO0-rR-VUl" secondAttribute="centerX" id="4Iu-j6-H5F"/>
                                     <constraint firstItem="Zby-Id-4qw" firstAttribute="height" secondItem="fO0-rR-VUl" secondAttribute="height" constant="-137" id="4JK-Nf-oaH"/>
                                     <constraint firstItem="wzK-Rr-DPy" firstAttribute="top" secondItem="MSY-cw-DBX" secondAttribute="bottom" constant="15" id="58H-aL-dLb"/>
                                     <constraint firstItem="FPv-YR-lmD" firstAttribute="top" secondItem="i7k-ZI-tNO" secondAttribute="bottom" constant="15" id="5c0-Q8-XY8"/>
@@ -189,7 +197,9 @@
                                     <constraint firstItem="aJd-6R-LSZ" firstAttribute="centerY" secondItem="i7k-ZI-tNO" secondAttribute="centerY" id="EVa-Zr-P05"/>
                                     <constraint firstItem="El2-cF-rnN" firstAttribute="centerX" secondItem="i7k-ZI-tNO" secondAttribute="centerX" id="F7n-sv-crl"/>
                                     <constraint firstItem="dB1-Db-fQG" firstAttribute="top" secondItem="aAm-VX-Ddk" secondAttribute="bottom" constant="15" id="FQM-j5-e1I"/>
-                                    <constraint firstItem="JdD-GW-fxO" firstAttribute="leading" secondItem="fO0-rR-VUl" secondAttribute="leading" constant="5" id="IN9-hH-5yD"/>
+                                    <constraint firstItem="xYN-OW-baA" firstAttribute="height" secondItem="fO0-rR-VUl" secondAttribute="height" multiplier="0.0474684" id="GS0-94-KAr"/>
+                                    <constraint firstItem="xYN-OW-baA" firstAttribute="top" secondItem="fO0-rR-VUl" secondAttribute="top" constant="10" id="H2C-rf-kQp"/>
+                                    <constraint firstItem="JdD-GW-fxO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fO0-rR-VUl" secondAttribute="leading" constant="35" id="IN9-hH-5yD"/>
                                     <constraint firstItem="dB1-Db-fQG" firstAttribute="height" secondItem="vbV-6t-D1y" secondAttribute="height" id="JTU-EU-r1o"/>
                                     <constraint firstItem="eyv-Zv-lbb" firstAttribute="top" secondItem="vbV-6t-D1y" secondAttribute="bottom" constant="15" id="Lj1-oX-tvS"/>
                                     <constraint firstItem="Zby-Id-4qw" firstAttribute="centerY" secondItem="fO0-rR-VUl" secondAttribute="centerY" id="LqZ-iE-AZj"/>
@@ -197,13 +207,13 @@
                                     <constraint firstItem="sav-Vm-kzk" firstAttribute="centerX" secondItem="aJd-6R-LSZ" secondAttribute="centerX" id="MEV-bJ-jFz"/>
                                     <constraint firstItem="vbV-6t-D1y" firstAttribute="height" secondItem="Zby-Id-4qw" secondAttribute="height" multiplier="0.118671" constant="16.257911392405063" id="Mwb-Xr-0Qt"/>
                                     <constraint firstItem="sav-Vm-kzk" firstAttribute="height" secondItem="aJd-6R-LSZ" secondAttribute="height" id="NZr-Vc-nZn"/>
-                                    <constraint firstItem="JdD-GW-fxO" firstAttribute="top" secondItem="fO0-rR-VUl" secondAttribute="top" constant="5" id="NmW-Ak-8df"/>
                                     <constraint firstItem="eyv-Zv-lbb" firstAttribute="width" secondItem="vbV-6t-D1y" secondAttribute="width" id="PTy-6s-v6z"/>
                                     <constraint firstItem="iq1-FT-eAJ" firstAttribute="width" secondItem="sav-Vm-kzk" secondAttribute="width" id="PwG-IC-MB0"/>
                                     <constraint firstItem="aAm-VX-Ddk" firstAttribute="width" secondItem="dB1-Db-fQG" secondAttribute="width" id="QpS-X7-Rxg"/>
                                     <constraint firstItem="HZ6-TD-imb" firstAttribute="width" secondItem="tuk-rM-9R7" secondAttribute="width" id="RJs-P3-DRT"/>
                                     <constraint firstItem="tuk-rM-9R7" firstAttribute="top" secondItem="wzK-Rr-DPy" secondAttribute="bottom" constant="15" id="Ruf-FT-UrK"/>
                                     <constraint firstItem="i7k-ZI-tNO" firstAttribute="height" secondItem="Zby-Id-4qw" secondAttribute="height" multiplier="0.118671" constant="16.257911392405063" id="T3J-EL-5PL"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xYN-OW-baA" secondAttribute="trailing" id="TS5-Xn-Sxe"/>
                                     <constraint firstItem="e9e-FN-AKo" firstAttribute="width" secondItem="eyv-Zv-lbb" secondAttribute="width" id="UCg-Ru-bdG"/>
                                     <constraint firstItem="7Ge-iX-ara" firstAttribute="height" secondItem="aJd-6R-LSZ" secondAttribute="height" id="UDy-2m-raU"/>
                                     <constraint firstItem="dB1-Db-fQG" firstAttribute="width" secondItem="vbV-6t-D1y" secondAttribute="width" id="UQn-Nm-nkt"/>
@@ -242,16 +252,18 @@
                                     <constraint firstItem="i7k-ZI-tNO" firstAttribute="width" secondItem="Zby-Id-4qw" secondAttribute="width" multiplier="2.5" constant="37.5" id="rmD-Yj-iUS"/>
                                     <constraint firstItem="MSY-cw-DBX" firstAttribute="top" secondItem="HuA-Zr-gGf" secondAttribute="bottom" constant="15" id="s4m-GT-EcI"/>
                                     <constraint firstItem="MSY-cw-DBX" firstAttribute="centerX" secondItem="wzK-Rr-DPy" secondAttribute="centerX" id="sAC-A7-BJI"/>
+                                    <constraint firstAttribute="bottom" secondItem="JdD-GW-fxO" secondAttribute="bottom" constant="5" id="t0e-UV-xLo"/>
                                     <constraint firstItem="aJd-6R-LSZ" firstAttribute="height" secondItem="i7k-ZI-tNO" secondAttribute="height" id="t1p-E7-7tq"/>
                                     <constraint firstItem="i7k-ZI-tNO" firstAttribute="leading" secondItem="aJd-6R-LSZ" secondAttribute="trailing" constant="15" id="tOB-cP-Sio"/>
                                     <constraint firstItem="ps1-CR-05c" firstAttribute="centerX" secondItem="FPv-YR-lmD" secondAttribute="centerX" id="uY9-ri-w4E"/>
                                     <constraint firstItem="Zby-Id-4qw" firstAttribute="leading" secondItem="i7k-ZI-tNO" secondAttribute="trailing" id="vBR-8K-wZh"/>
-                                    <constraint firstAttribute="trailing" secondItem="JdD-GW-fxO" secondAttribute="trailing" constant="5" id="vXy-gR-NVG"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JdD-GW-fxO" secondAttribute="trailing" constant="35" id="vXy-gR-NVG"/>
                                     <constraint firstItem="wzK-Rr-DPy" firstAttribute="centerY" secondItem="vbV-6t-D1y" secondAttribute="centerY" id="wgU-FS-OUl"/>
                                     <constraint firstItem="URg-dq-bbo" firstAttribute="centerX" secondItem="El2-cF-rnN" secondAttribute="centerX" id="x5P-dk-LHp"/>
                                     <constraint firstItem="HuA-Zr-gGf" firstAttribute="width" secondItem="MSY-cw-DBX" secondAttribute="width" id="xv1-6E-un9"/>
                                     <constraint firstItem="e9e-FN-AKo" firstAttribute="height" secondItem="eyv-Zv-lbb" secondAttribute="height" id="xx9-co-RRR"/>
                                     <constraint firstItem="iq1-FT-eAJ" firstAttribute="top" secondItem="sav-Vm-kzk" secondAttribute="bottom" constant="15" id="zDT-1J-Zds"/>
+                                    <constraint firstItem="xYN-OW-baA" firstAttribute="width" secondItem="fO0-rR-VUl" secondAttribute="width" multiplier="0.903382" id="zaz-ia-G4s"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uaL-zW-LYA" userLabel="LowerSection">
@@ -307,6 +319,7 @@
                     </view>
                     <connections>
                         <outlet property="cardTypeSelection" destination="JdD-GW-fxO" id="xll-Th-mOt"/>
+                        <outlet property="countdownTimer" destination="xYN-OW-baA" id="WPv-RI-J8F"/>
                         <outlet property="playButtonView" destination="bVJ-Ha-rHr" id="hgE-et-o7T"/>
                         <outletCollection property="CardsPhone" destination="fZB-kP-zol" collectionClass="NSMutableArray" id="vrp-tC-TNO"/>
                         <outletCollection property="CardsPhone" destination="URg-dq-bbo" collectionClass="NSMutableArray" id="FGT-G8-DYV"/>
