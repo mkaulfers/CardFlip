@@ -260,14 +260,17 @@ class ViewController: UIViewController {
     
     func isGameWon()
     {
-        print(currentMatches)
         if currentMatches == 10
         {
-            print("Game won")
-            let alert = UIAlertController(title: "You Won!", message: "Time: 0:00.000", preferredStyle: .alert)
+            
+            let alert = UIAlertController(title: "You Won!", message: "Time: \(String(format: "%02d:%02d:%02d", minutes, seconds, milliseconds))", preferredStyle: .alert)
+            
             alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { action in
                 self.playButtonView.image = UIImage(named: "PlayButton")
             }))
+            
+            
+            currentTime.invalidate()
             self.present(alert, animated: true, completion: nil)
             
             //INFO: Show all the matches from previous game.
@@ -282,6 +285,8 @@ class ViewController: UIViewController {
         {
             allCardsInteractionEnabled()
         }
+        
+        
     }
     
     //MARK: - User Options
