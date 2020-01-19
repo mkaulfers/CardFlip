@@ -99,9 +99,11 @@ class ViewController: UIViewController {
     
     @IBAction func playButtonPressed()
     {
+        playButtonView.isUserInteractionEnabled = false
         startTimer()
         playButtonView.image = UIImage(named: "ReplayButton")
         buttonPressedAnimation(sender: playButtonView)
+        
         
         self.currentMatches = 0
         self.currentPlays = 0
@@ -113,9 +115,8 @@ class ViewController: UIViewController {
             flipCard(sender: card)
         }
         
-        playButtonView.isUserInteractionEnabled = false
-        
         DispatchQueue.global(qos: .default).asyncAfter(deadline: .now() + 5) {
+            
             for card in self.cardsPhone
             {
                 DispatchQueue.main.async {
@@ -123,18 +124,16 @@ class ViewController: UIViewController {
                 }
                 usleep(20000)
             }
-            DispatchQueue.main.async{
-                
-                
+            DispatchQueue.main.sync{
                 //INFO: Enable cards after hidden.
                 for card in self.cardsPhone
                 {
                     card.isUserInteractionEnabled = true
                 }
+                
+                //INFO: Enable play button after cards are hidden to prevent crashing layout.
                 self.playButtonView.isUserInteractionEnabled = true
             }
-            
-            
         }
         
         cardsSelected = 0
@@ -183,8 +182,6 @@ class ViewController: UIViewController {
                 
                 //INFO: Store second selection.
                 self.secondSelectedCard = self.cardsImages[selectedCard]
-                
-                self.playButtonView.isUserInteractionEnabled = false
                 
                 DispatchQueue.main.asyncAfter(deadline: .now()+1)
                 {
@@ -311,7 +308,6 @@ class ViewController: UIViewController {
             sender.image = UIImage()
             UIView.transition(with: sender, duration: 0.3, options: .transitionFlipFromRight, animations: nil, completion: nil)
         }
-        playButtonView.isUserInteractionEnabled = true
     }
     
     func popIn(sender: UIImageView)
@@ -327,7 +323,6 @@ class ViewController: UIViewController {
                        delay: 0,
                        usingSpringWithDamping: CGFloat(0.20),
                        initialSpringVelocity: CGFloat(5.0),
-                       
                        animations: {
                         sender.transform = CGAffineTransform.identity
         },
