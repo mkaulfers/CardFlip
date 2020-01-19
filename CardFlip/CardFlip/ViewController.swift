@@ -44,7 +44,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addCardsToArray()
-        //setCardView()
+        setCardView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,8 +57,6 @@ class ViewController: UIViewController {
     {
         cards.append(card1View)
         cards.append(card2View)
-        cards.append(card3View)
-        cards.append(card3View)
         cards.append(card3View)
         cards.append(card4View)
         cards.append(card5View)
@@ -81,17 +79,16 @@ class ViewController: UIViewController {
     
     func setCardView()
     {
-//        for var card in cards
-//        {
-//            card = ShadowCornerImageView(card, radius: 15, color: .black, offset: CGSize(width: 15, height: 15), opacity: 0.5, cornerRadius: 15)
-//        }
+        for (i, card) in cards.enumerated()
+        {
+            card.image = UIImage(named: "r\(i+1)")
+        }
     }
     
     //MARK: - Custom Methods
     @IBAction func playButtonPressed()
     {
-        //playButtonView
-        print("test")
+        setCardView()
         
         UIImageView.animate(withDuration: 0.5,  animations: {
             self.playButtonView.center = CGPoint(x: self.playButtonView.center.x, y: self.playButtonView.center.y + 15)
@@ -158,6 +155,40 @@ class ViewController: UIViewController {
     }
     
     @IBAction func card20Selected(_ sender: Any) {
-    }   
+    }
+    
+    //MARK: - Play Logic
+    var firstSelectedCard = UIImageView()
+    var secondSelectedCard = UIImageView()
+    var cardsSelected = 0
+    
+    func playCard(card: UIImageView)
+    {
+        cardsSelected += 1
+        
+        switch cardsSelected
+        {
+        case 1:
+            firstSelectedCard = card
+        case 2:
+            secondSelectedCard = card
+        default:
+            cardsSelected = 0
+        }
+        
+        if cardsSelected == 2
+        {
+            if firstSelectedCard.image == secondSelectedCard.image
+            {
+                
+            }
+            else
+            {
+                
+            }
+        }
+    }
+    
+    
 }
 

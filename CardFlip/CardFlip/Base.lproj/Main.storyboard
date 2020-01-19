@@ -47,7 +47,7 @@
                                         <rect key="frame" x="199.66666666666666" y="68.666666666666629" width="15" height="495"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <imageView clipsSubviews="YES" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="001" translatesAutoresizingMaskIntoConstraints="NO" id="fZB-kP-zol" userLabel="Card1">
+                                    <imageView clipsSubviews="YES" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fZB-kP-zol" userLabel="Card1">
                                         <rect key="frame" x="34.666666666666657" y="98.666666666666657" width="75" height="75"/>
                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <gestureRecognizers/>
@@ -55,7 +55,7 @@
                                             <outletCollection property="gestureRecognizers" destination="f9A-XG-OW1" appends="YES" id="pd1-3a-jxP"/>
                                         </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="k025" translatesAutoresizingMaskIntoConstraints="NO" id="URg-dq-bbo" userLabel="Card2">
+                                    <imageView clipsSubviews="YES" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="URg-dq-bbo" userLabel="Card2">
                                         <rect key="frame" x="124.66666666666669" y="98.666666666666657" width="75" height="75"/>
                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <gestureRecognizers/>
@@ -63,7 +63,7 @@
                                             <outletCollection property="gestureRecognizers" destination="d9b-LC-VCd" appends="YES" id="DgR-mW-wOm"/>
                                         </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="k009" translatesAutoresizingMaskIntoConstraints="NO" id="aAm-VX-Ddk" userLabel="Card3">
+                                    <imageView clipsSubviews="YES" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aAm-VX-Ddk" userLabel="Card3">
                                         <rect key="frame" x="214.66666666666666" y="98.666666666666657" width="74.999999999999972" height="75"/>
                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <gestureRecognizers/>
@@ -498,13 +498,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="001" width="300" height="300"/>
         <image name="Horiz Subtraction" width="340.66665649414062" height="60"/>
         <image name="HorizontalBackBanner" width="375" height="100"/>
         <image name="Liquid-Cheese" width="1600.3333740234375" height="812"/>
         <image name="MainLogo" width="119.33333587646484" height="85.333335876464844"/>
         <image name="PlayButton" width="136" height="136"/>
-        <image name="k009" width="300" height="300"/>
-        <image name="k025" width="300" height="300"/>
     </resources>
 </document>
