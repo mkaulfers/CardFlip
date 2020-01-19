@@ -100,6 +100,7 @@ class ViewController: UIViewController {
     @IBAction func playButtonPressed()
     {
         playButtonView.isUserInteractionEnabled = false
+        stopTimer()
         startTimer()
         playButtonView.image = UIImage(named: "ReplayButton")
         buttonPressedAnimation(sender: playButtonView)
@@ -224,24 +225,37 @@ class ViewController: UIViewController {
     
     var minutes = 0
     var seconds = -5
+    var milliseconds = 0
     var currentTime = Timer()
     var timerIsRunning = false
     
     func startTimer()
     {
-        currentTime = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        currentTime = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: {[weak self ] (_) in
+            
+            guard let strongSelf = self else { return }
+            
+            strongSelf.milliseconds += 1
+            if strongSelf.milliseconds == 100 { strongSelf.seconds += 1; strongSelf.milliseconds = 0 }
+            else if strongSelf.seconds == 60 {strongSelf.minutes += 1; strongSelf.seconds = 0}
+            
+            if strongSelf.seconds < 0
+            {
+                strongSelf.countdownTimer.text = "Start In: \(strongSelf.seconds)"
+            }
+            else
+            {
+                strongSelf.countdownTimer.text = "Time: \(String(format: "%02d:%02d:%02d", strongSelf.minutes, strongSelf.seconds, strongSelf.milliseconds))"
+            }
+        })
     }
     
     func stopTimer()
     {
         currentTime.invalidate()
-        seconds = 0
-    }
-    
-    @objc func updateTimer()
-    {
-        seconds += 1
-        countdownTimer.text = "Time: \(currentTime.timeInterval.stringFromTimeInterval().minutes):\(currentTime.timeInterval.stringFromTimeInterval().milliseconds).\(currentTime.timeInterval.stringFromTimeInterval().milliseconds)"
+        minutes = 0
+        seconds = -5
+        milliseconds = 0
     }
     
     func isGameWon()
@@ -328,22 +342,6 @@ class ViewController: UIViewController {
         },
                        completion: { Void in()  }
         )
-    }
-}
-
-//MARK: - Extensions
-extension TimeInterval{
-    
-    func stringFromTimeInterval() -> (minutes: String, seconds: String, milliseconds: String) {
-        
-        let time = NSInteger(self)
-        
-        let ms = Int((self.truncatingRemainder(dividingBy: 1)) * 1000)
-        let seconds = time % 60
-        let minutes = (time / 60) % 60
-        
-        return (String(minutes), String(seconds), String(ms))
-        
     }
 }
 
