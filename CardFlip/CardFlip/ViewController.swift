@@ -16,7 +16,6 @@ class ViewController: UIViewController {
     
     //INFO: Other UI Variables
     @IBOutlet weak var playButtonView: UIImageView!
-    @IBOutlet weak var cardTypeSelection: UISegmentedControl!
     @IBOutlet weak var countdownTimer: UILabel!
     
     //INFO: Static Variables
@@ -28,20 +27,23 @@ class ViewController: UIViewController {
     //MARK: - Start of Main
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //INFO: Sort so we can properly match
         cardsPhone.sort(by: {$0.tag < $1.tag})
+        
+        //INFO: Set their view.
         setCardView()
+        
+        //INFO: Disable all buttons.
+        allCardsInteractionDisabled()
     }
     
-    //MARK: - Setup Methods
+    //MARK: - Setup And Control Methods
+    
+    
     func setCardView()
     {
-        //INFO: Add GestureRecognizer to each card
-        for card in cardsPhone
-        {
-            card.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(playCard(_:))))
-            card.layer.cornerRadius = 15
-            card.clipsToBounds = true
-        }
+        addGesturetoCards()
         
         //INFO: Create a set, they cannot contain duplicates.
         var selectedImages = Set<UIImage>()
@@ -64,10 +66,43 @@ class ViewController: UIViewController {
         }
     }
     
+    fileprivate func addGesturetoCards()
+    {
+        //INFO: Add GestureRecognizer to each card and round corners.
+        for card in cardsPhone
+        {
+            card.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(playCard(_:))))
+            card.layer.cornerRadius = 15
+            card.clipsToBounds = true
+        }
+    }
+    
+    func allCardsInteractionDisabled()
+    {
+        for card in cardsPhone
+        {
+            card.isUserInteractionEnabled = false
+        }
+    }
+    
+    func allCardsInteractionEnabled()
+    {
+        for card in cardsPhone
+        {
+            card.isUserInteractionEnabled = true
+        }
+    }
+    
     //MARK: - Custom Methods
+    var currentMatches = 0
+    var currentPlays = 0
+    
     @IBAction func playButtonPressed()
     {
         startTimer()
+        
+        self.currentMatches = 0
+        self.currentPlays = 0
         
         //INFO: Disable cards while viewing.
         for card in cardsPhone
@@ -120,8 +155,6 @@ class ViewController: UIViewController {
     
     @objc func playCard(_ sender: UITapGestureRecognizer)
     {
-        print("Hit playCard")
-        
         if let selectedCard = sender.view?.tag
         {
             flipCard(sender: cardsPhone[selectedCard])
@@ -159,13 +192,14 @@ class ViewController: UIViewController {
                     //INFO: Check for match condition.
                     if self.firstSelectedCard == self.secondSelectedCard
                     {
-                        
+                        //INFO: Add match counter
+                        self.currentMatches += 1
                         self.cardsPhone[self.firstSelectedTag].isHidden = true
                         self.cardsPhone[selectedCard].isHidden = true
-                        
+                        self.isGameWon()
                     }
                     else{
-                        print("No match")
+                        self.currentPlays += 1
                         
                         //INFO: Re-enable selection because no match.
                         self.cardsPhone[self.firstSelectedTag].isUserInteractionEnabled = true
@@ -179,13 +213,12 @@ class ViewController: UIViewController {
                     //INFO: Reset to a different attempt.
                     self.firstSelectedTag = -1
                     self.cardsSelected = 0
+                    
                     self.firstSelectedCard = UIImage()
                     self.secondSelectedCard = UIImage()
-                    for card in self.cardsPhone
-                    {
-                        card.isUserInteractionEnabled = true
-                        self.playButtonView.isUserInteractionEnabled = true
-                    }
+                    
+                    self.allCardsInteractionEnabled()
+                    self.playButtonView.isUserInteractionEnabled = true
                 }
             }
         }
@@ -217,11 +250,20 @@ class ViewController: UIViewController {
     
     func isGameWon()
     {
-        
+        print(currentMatches)
+        if currentMatches == 10
+        {
+            print("Game won")
+            playButtonPressed()
+        }
     }
     
     //MARK: - User Options
     
+    //INFO: Segmented Control
+    @IBOutlet weak var cardTypeSelection: UISegmentedControl!
+    
+    //TODO: Imageset 4 needs to be implemented.
     @IBAction func cardImageSetChanged(_ sender: UISegmentedControl)
     {
         switch sender.selectedSegmentIndex {
