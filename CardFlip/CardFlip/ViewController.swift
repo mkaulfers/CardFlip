@@ -118,12 +118,14 @@ class ViewController: UIViewController {
     //MARK: - Custom Methods
     var currentMatches = 0
     var currentPlays = 0
+    @IBOutlet weak var selectIconsControl: UISegmentedControl!
     
     @IBAction func playButtonPressed()
     {
         playButtonView.isUserInteractionEnabled = false
         stopTimer()
         startTimer()
+        cardImageSetChanged(selectIconsControl)
         playButtonView.image = UIImage(named: "ReplayButton")
         buttonPressedAnimation(sender: playButtonView)
         
@@ -327,9 +329,10 @@ class ViewController: UIViewController {
         case 2:
             imageSet = "m"
         case 3:
-            imageSet = "p"
+            imageSet = "h"
         case 4:
-            imageSet = "g"
+            let possibleSets = ["r", "k", "m", "h"]
+            imageSet = possibleSets[Int.random(in: 0...3)]
         default:
             print("This should never happen...")
         }
