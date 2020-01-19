@@ -71,6 +71,7 @@ class ViewController: UIViewController {
         for card in cardsPhone
         {
             card.isUserInteractionEnabled = false
+            flipCard(sender: card)
         }
         
         playButtonView.isUserInteractionEnabled = false
@@ -219,7 +220,7 @@ class ViewController: UIViewController {
         else
         {
             sender.image = UIImage()
-            UIView.transition(with: sender, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+            UIView.transition(with: sender, duration: 0.3, options: .transitionFlipFromRight, animations: nil, completion: nil)
         }
         playButtonView.isUserInteractionEnabled = true
     }
