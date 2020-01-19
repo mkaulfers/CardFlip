@@ -100,6 +100,8 @@ class ViewController: UIViewController {
     @IBAction func playButtonPressed()
     {
         startTimer()
+        playButtonView.image = UIImage(named: "ReplayButton")
+        buttonPressedAnimation(sender: playButtonView)
         
         self.currentMatches = 0
         self.currentPlays = 0
@@ -177,10 +179,7 @@ class ViewController: UIViewController {
             else if self.cardsSelected == 1
             {
                 //INFO: Disable use of the selected card.
-                for card in self.cardsPhone
-                {
-                    card.isUserInteractionEnabled = false
-                }
+                allCardsInteractionDisabled()
                 
                 //INFO: Store second selection.
                 self.secondSelectedCard = self.cardsImages[selectedCard]
@@ -196,7 +195,6 @@ class ViewController: UIViewController {
                         self.currentMatches += 1
                         self.cardsPhone[self.firstSelectedTag].isHidden = true
                         self.cardsPhone[selectedCard].isHidden = true
-                        self.isGameWon()
                     }
                     else{
                         self.currentPlays += 1
@@ -217,7 +215,8 @@ class ViewController: UIViewController {
                     self.firstSelectedCard = UIImage()
                     self.secondSelectedCard = UIImage()
                     
-                    self.allCardsInteractionEnabled()
+                    self.isGameWon()
+                    
                     self.playButtonView.isUserInteractionEnabled = true
                 }
             }
@@ -254,7 +253,23 @@ class ViewController: UIViewController {
         if currentMatches == 10
         {
             print("Game won")
-            playButtonPressed()
+            let alert = UIAlertController(title: "You Won!", message: "Time: 0:00.000", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { action in
+                self.playButtonView.image = UIImage(named: "PlayButton")
+            }))
+            self.present(alert, animated: true, completion: nil)
+            
+            //INFO: Show all the matches from previous game.
+            for card in cardsPhone
+            {
+                popIn(sender: card)
+                card.isHidden = false
+            }
+            allCardsInteractionDisabled()
+        }
+        else
+        {
+            allCardsInteractionEnabled()
         }
     }
     
@@ -298,21 +313,42 @@ class ViewController: UIViewController {
         }
         playButtonView.isUserInteractionEnabled = true
     }
+    
+    func popIn(sender: UIImageView)
+    {
+        UIView.transition(with: sender, duration: 0.5, options: .transitionCurlDown, animations: nil, completion: nil)
+    }
+    
+    func buttonPressedAnimation(sender: UIImageView)
+    {
+        sender.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+        
+        UIView.animate(withDuration: 1.0,
+                       delay: 0,
+                       usingSpringWithDamping: CGFloat(0.20),
+                       initialSpringVelocity: CGFloat(5.0),
+                       
+                       animations: {
+                        sender.transform = CGAffineTransform.identity
+        },
+                       completion: { Void in()  }
+        )
+    }
 }
 
 //MARK: - Extensions
 extension TimeInterval{
-
+    
     func stringFromTimeInterval() -> (minutes: String, seconds: String, milliseconds: String) {
-
+        
         let time = NSInteger(self)
-
+        
         let ms = Int((self.truncatingRemainder(dividingBy: 1)) * 1000)
         let seconds = time % 60
         let minutes = (time / 60) % 60
-
+        
         return (String(minutes), String(seconds), String(ms))
-
+        
     }
 }
 
