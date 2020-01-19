@@ -79,10 +79,9 @@ class ViewController: UIViewController {
     
     func setCardView()
     {
-        for (i, card) in cards.enumerated()
-        {
-            card.image = UIImage(named: "r\(i+1)")
-        }
+        let randomSelection = [Int.random(in: 0...1), Int.random(in: 2...3),Int.random(in: 4...5),Int.random(in: 6...7),Int.random(in: 8...9),Int.random(in: 10...11),Int.random(in: 12...13),Int.random(in: 14...15),Int.random(in: 16...17),Int.random(in: 18...19)]
+        
+        
     }
     
     //MARK: - Custom Methods
@@ -90,10 +89,10 @@ class ViewController: UIViewController {
     {
         setCardView()
         
-        UIImageView.animate(withDuration: 0.5,  animations: {
-            self.playButtonView.center = CGPoint(x: self.playButtonView.center.x, y: self.playButtonView.center.y + 15)
-            
-        })
+//        UIImageView.animate(withDuration: 0.5,  animations: {
+//            self.playButtonView.center = CGPoint(x: self.playButtonView.center.x, y: self.playButtonView.center.y + 15)
+//
+//        })
     }
     
     //MARK: - GestureRecognizer Actions
