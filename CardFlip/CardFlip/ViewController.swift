@@ -39,6 +39,8 @@ class ViewController: UIViewController {
         for card in cardsPhone
         {
             card.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(playCard(_:))))
+            card.layer.cornerRadius = 15
+            card.clipsToBounds = true
         }
         
         //INFO: Create a set, they cannot contain duplicates.
@@ -65,9 +67,15 @@ class ViewController: UIViewController {
     //MARK: - Custom Methods
     @IBAction func playButtonPressed()
     {
+        //INFO: Disable cards while viewing.
+        for card in cardsPhone
+        {
+            card.isUserInteractionEnabled = false
+        }
         
+        playButtonView.isUserInteractionEnabled = false
         
-        DispatchQueue.global(qos: .default).async {
+        DispatchQueue.global(qos: .default).asyncAfter(deadline: .now() + 5) {
             for card in self.cardsPhone
             {
                 DispatchQueue.main.async {
@@ -75,10 +83,29 @@ class ViewController: UIViewController {
                 }
                 usleep(20000)
             }
+            DispatchQueue.main.async{
+                
+                
+                //INFO: Enable cards after hidden.
+                for card in self.cardsPhone
+                {
+                    card.isUserInteractionEnabled = true
+                }
+                self.playButtonView.isUserInteractionEnabled = true
+            }
+            
+            
         }
+        
         cardsSelected = 0
         firstSelectedCard = UIImage()
         secondSelectedCard = UIImage()
+        
+        for card in cardsPhone
+        {
+            card.isHidden = false
+        }
+        
         setCardView()
     }
     
@@ -121,12 +148,14 @@ class ViewController: UIViewController {
                 //INFO: Store second selection.
                 self.secondSelectedCard = self.cardsImages[selectedCard]
                 
+                self.playButtonView.isUserInteractionEnabled = false
+                
                 DispatchQueue.main.asyncAfter(deadline: .now()+1)
                 {
                     //INFO: Check for match condition.
                     if self.firstSelectedCard == self.secondSelectedCard
                     {
-                        print("Match")
+                        
                         self.cardsPhone[self.firstSelectedTag].isHidden = true
                         self.cardsPhone[selectedCard].isHidden = true
                         
@@ -151,6 +180,7 @@ class ViewController: UIViewController {
                     for card in self.cardsPhone
                     {
                         card.isUserInteractionEnabled = true
+                        self.playButtonView.isUserInteractionEnabled = true
                     }
                 }
             }
@@ -180,6 +210,7 @@ class ViewController: UIViewController {
     //MARK: - Animations
     func flipCard(sender: UIImageView)
     {
+        playButtonView.isUserInteractionEnabled = false
         if sender.image == UIImage()
         {
             sender.image = cardsImages[sender.tag]
@@ -190,7 +221,7 @@ class ViewController: UIViewController {
             sender.image = UIImage()
             UIView.transition(with: sender, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
         }
-        
+        playButtonView.isUserInteractionEnabled = true
     }
 }
 
