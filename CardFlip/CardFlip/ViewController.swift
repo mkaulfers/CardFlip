@@ -32,7 +32,15 @@ class ViewController: UIViewController {
         cardsPhone.sort(by: {$0.tag < $1.tag})
         
         //INFO: Set their view.
-        setCardView()
+        
+        if UIDevice.current.userInterfaceIdiom == .phone
+        {
+            setCardViewPhone()
+        }
+        else
+        {
+            print("You're on something else. ")
+        }
         
         //INFO: Disable all buttons.
         allCardsInteractionDisabled()
@@ -40,22 +48,36 @@ class ViewController: UIViewController {
     
     //MARK: - Setup And Control Methods
     
-    
-    func setCardView()
+    func getImageSet(numOfImagesToReturn: Int) -> Set<UIImage>
     {
-        addGesturetoCards()
-        
         //INFO: Create a set, they cannot contain duplicates.
         var selectedImages = Set<UIImage>()
         
         //INFO: Loop through adding random images until we reach a count of 10
-        while selectedImages.count < 10
+        while selectedImages.count < numOfImagesToReturn
         {
             selectedImages.insert(UIImage(named: "\(imageSet)\(Int.random(in: 0...19))")!)
         }
         
+        return selectedImages
+    }
+    
+    func setCardViewPhone()
+    {
+        addGesturetoCards()
         //INFO: Convert set to an array, then shuffle.
-        cardsImages = Array(selectedImages)
+        
+        var numOfImagesToReturn = 0
+        
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            numOfImagesToReturn = 10
+        }
+        else
+        {
+            numOfImagesToReturn = 15
+        }
+        
+        cardsImages = Array(getImageSet(numOfImagesToReturn: numOfImagesToReturn))
         cardsImages += cardsImages
         cardsImages.shuffle()
         
@@ -146,7 +168,7 @@ class ViewController: UIViewController {
             card.isHidden = false
         }
         
-        setCardView()
+        setCardViewPhone()
     }
     
     //MARK: - Play Logic
