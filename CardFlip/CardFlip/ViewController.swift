@@ -67,6 +67,8 @@ class ViewController: UIViewController {
     //MARK: - Custom Methods
     @IBAction func playButtonPressed()
     {
+        startTimer()
+        
         //INFO: Disable cards while viewing.
         for card in cardsPhone
         {
@@ -119,6 +121,7 @@ class ViewController: UIViewController {
     @objc func playCard(_ sender: UITapGestureRecognizer)
     {
         print("Hit playCard")
+        
         if let selectedCard = sender.view?.tag
         {
             flipCard(sender: cardsPhone[selectedCard])
@@ -188,6 +191,35 @@ class ViewController: UIViewController {
         }
     }
     
+    //MARK: - Game Stats
+    
+    var minutes = 0
+    var seconds = -5
+    var currentTime = Timer()
+    var timerIsRunning = false
+    
+    func startTimer()
+    {
+        currentTime = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    }
+    
+    func stopTimer()
+    {
+        currentTime.invalidate()
+        seconds = 0
+    }
+    
+    @objc func updateTimer()
+    {
+        seconds += 1
+        countdownTimer.text = "Time: \(currentTime.timeInterval.stringFromTimeInterval().minutes):\(currentTime.timeInterval.stringFromTimeInterval().milliseconds).\(currentTime.timeInterval.stringFromTimeInterval().milliseconds)"
+    }
+    
+    func isGameWon()
+    {
+        
+    }
+    
     //MARK: - User Options
     
     @IBAction func cardImageSetChanged(_ sender: UISegmentedControl)
@@ -223,6 +255,22 @@ class ViewController: UIViewController {
             UIView.transition(with: sender, duration: 0.3, options: .transitionFlipFromRight, animations: nil, completion: nil)
         }
         playButtonView.isUserInteractionEnabled = true
+    }
+}
+
+//MARK: - Extensions
+extension TimeInterval{
+
+    func stringFromTimeInterval() -> (minutes: String, seconds: String, milliseconds: String) {
+
+        let time = NSInteger(self)
+
+        let ms = Int((self.truncatingRemainder(dividingBy: 1)) * 1000)
+        let seconds = time % 60
+        let minutes = (time / 60) % 60
+
+        return (String(minutes), String(seconds), String(ms))
+
     }
 }
 
