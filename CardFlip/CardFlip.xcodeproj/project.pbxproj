@@ -14,6 +14,9 @@
 		AE65521623D260D7002C78B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE65521523D260D7002C78B1 /* Assets.xcassets */; };
 		AE65521923D260D7002C78B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE65521723D260D7002C78B1 /* LaunchScreen.storyboard */; };
 		AEB28D4523D3AEAB003C026F /* ShadowCornerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB28D4423D3AEAB003C026F /* ShadowCornerImageView.swift */; };
+		AEE087B523D547DD00758140 /* buttonHit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AEE087B223D547DD00758140 /* buttonHit.mp3 */; };
+		AEE087B623D547DD00758140 /* backgroundJam.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AEE087B323D547DD00758140 /* backgroundJam.mp3 */; };
+		AEE087B723D547DD00758140 /* cardFlip.wav in Resources */ = {isa = PBXBuildFile; fileRef = AEE087B423D547DD00758140 /* cardFlip.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		AE65521823D260D7002C78B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE65521A23D260D7002C78B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEB28D4423D3AEAB003C026F /* ShadowCornerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowCornerImageView.swift; sourceTree = "<group>"; };
+		AEE087B223D547DD00758140 /* buttonHit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buttonHit.mp3; sourceTree = "<group>"; };
+		AEE087B323D547DD00758140 /* backgroundJam.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundJam.mp3; sourceTree = "<group>"; };
+		AEE087B423D547DD00758140 /* cardFlip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cardFlip.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +72,9 @@
 				AE65521523D260D7002C78B1 /* Assets.xcassets */,
 				AE65521723D260D7002C78B1 /* LaunchScreen.storyboard */,
 				AE65521A23D260D7002C78B1 /* Info.plist */,
+				AEE087B323D547DD00758140 /* backgroundJam.mp3 */,
+				AEE087B223D547DD00758140 /* buttonHit.mp3 */,
+				AEE087B423D547DD00758140 /* cardFlip.wav */,
 			);
 			path = CardFlip;
 			sourceTree = "<group>";
@@ -128,9 +137,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEE087B523D547DD00758140 /* buttonHit.mp3 in Resources */,
+				AEE087B723D547DD00758140 /* cardFlip.wav in Resources */,
 				AE65521923D260D7002C78B1 /* LaunchScreen.storyboard in Resources */,
 				AE65521623D260D7002C78B1 /* Assets.xcassets in Resources */,
 				AE65521423D260D5002C78B1 /* Main.storyboard in Resources */,
+				AEE087B623D547DD00758140 /* backgroundJam.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

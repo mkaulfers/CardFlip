@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -27,6 +28,8 @@ class ViewController: UIViewController {
     //MARK: - Start of Main
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        startBackgroundMusic()
         
         //INFO: Sort so we can properly match
         cardsPhone.sort(by: {$0.tag < $1.tag})
@@ -380,6 +383,26 @@ class ViewController: UIViewController {
         },
                        completion: { Void in()  }
         )
+    }
+    
+    //MARK: - AUDIO
+    var backgroundMusic = AVAudioPlayer()
+    
+    func startBackgroundMusic()
+    {
+        let path = Bundle.main.path(forResource: "backgroundJam", ofType:"mp3")
+        
+        do {
+            
+            backgroundMusic = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path!))
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default, options: [AVAudioSession.CategoryOptions.mixWithOthers])
+            
+        } catch{
+            print("Background music did not load.")
+        }
+        backgroundMusic.numberOfLoops = -1
+        backgroundMusic.volume = 0.3
+        backgroundMusic.play()
     }
 }
 
