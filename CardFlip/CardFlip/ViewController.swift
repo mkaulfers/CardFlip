@@ -116,8 +116,6 @@ class ViewController: UIViewController {
     }
     
     //MARK: - Custom Methods
-    var currentMatches = 0
-    var currentPlays = 0
     @IBOutlet weak var selectIconsControl: UISegmentedControl!
     
     @IBAction func playButtonPressed()
@@ -131,7 +129,7 @@ class ViewController: UIViewController {
         
         
         self.currentMatches = 0
-        self.currentPlays = 0
+        self.currentAttempts = 0
         
         //INFO: Disable cards while viewing.
         for card in cardsPhone
@@ -179,6 +177,12 @@ class ViewController: UIViewController {
     var firstSelectedTag = -1
     var cardsSelected = 0
     
+    //INFO: Additional Stat Tracking
+    var currentMatches = 0
+    var currentAttempts = 0
+    @IBOutlet weak var matchesLabel: UILabel!
+    @IBOutlet weak var attemptsLabel: UILabel!
+    
     @objc func playCard(_ sender: UITapGestureRecognizer)
     {
         if let selectedCard = sender.view?.tag
@@ -215,11 +219,15 @@ class ViewController: UIViewController {
                     {
                         //INFO: Add match counter
                         self.currentMatches += 1
+                        self.matchesLabel.text = "Matches  \(self.currentMatches)"
+                        
                         self.cardsPhone[self.firstSelectedTag].isHidden = true
                         self.cardsPhone[selectedCard].isHidden = true
                     }
                     else{
-                        self.currentPlays += 1
+                        //INFO: Add attempts counter.
+                        self.currentAttempts += 1
+                        self.attemptsLabel.text = "Attempts  \(self.currentAttempts)"
                         
                         //INFO: Re-enable selection because no match.
                         self.cardsPhone[self.firstSelectedTag].isUserInteractionEnabled = true
@@ -287,7 +295,7 @@ class ViewController: UIViewController {
         if currentMatches == 10
         {
             
-            let alert = UIAlertController(title: "You Won!", message: "Time: \(String(format: "%02d:%02d:%02d", minutes, seconds, milliseconds))", preferredStyle: .alert)
+            let alert = UIAlertController(title: "You Won!", message: "Time: \(String(format: "%02d:%02d:%02d", minutes, seconds, milliseconds)) Matches:\(currentMatches) Attempts: \(currentAttempts)", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { action in
                 self.playButtonView.image = UIImage(named: "PlayButton")
