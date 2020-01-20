@@ -29,7 +29,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         startBackgroundMusic()
+        
         
         //INFO: Sort so we can properly match
         cardsPhone.sort(by: {$0.tag < $1.tag})
@@ -118,7 +120,7 @@ class ViewController: UIViewController {
         }
     }
     
-    //MARK: - Custom Methods
+    //MARK: - Play Button
     @IBOutlet weak var selectIconsControl: UISegmentedControl!
     
     @IBAction func playButtonPressed()
@@ -174,7 +176,7 @@ class ViewController: UIViewController {
         setCardViewPhone()
     }
     
-    //MARK: - Play Logic
+    //MARK: - Play Card
     var firstSelectedCard = UIImage()
     var secondSelectedCard = UIImage()
     var firstSelectedTag = -1
@@ -192,6 +194,9 @@ class ViewController: UIViewController {
         {
             flipCard(sender: cardsPhone[selectedCard])
             
+            DispatchQueue.main.async {
+                self.cardFlipSound()
+            }
             
             if self.cardsSelected == 0
             {
@@ -372,6 +377,10 @@ class ViewController: UIViewController {
     
     func buttonPressedAnimation(sender: UIImageView)
     {
+        DispatchQueue.main.async {
+            self.playButtonSound()
+        }
+        
         sender.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
         
         UIView.animate(withDuration: 1.0,
@@ -385,9 +394,8 @@ class ViewController: UIViewController {
         )
     }
     
-    //MARK: - AUDIO
+    //MARK: - Audio
     var backgroundMusic = AVAudioPlayer()
-    
     func startBackgroundMusic()
     {
         let path = Bundle.main.path(forResource: "backgroundJam", ofType:"mp3")
@@ -395,14 +403,48 @@ class ViewController: UIViewController {
         do {
             
             backgroundMusic = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path!))
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default, options: [AVAudioSession.CategoryOptions.mixWithOthers])
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.ambient, mode: AVAudioSession.Mode.default, options: [AVAudioSession.CategoryOptions.duckOthers])
             
         } catch{
             print("Background music did not load.")
         }
         backgroundMusic.numberOfLoops = -1
-        backgroundMusic.volume = 0.3
+        backgroundMusic.volume = 1
         backgroundMusic.play()
+    }
+    
+    var playButton = AVAudioPlayer()
+    func playButtonSound()
+    {
+        let path = Bundle.main.path(forResource: "buttonHit", ofType:"mp3")
+        
+        do {
+            
+            playButton = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path!))
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default, options: [AVAudioSession.CategoryOptions.mixWithOthers])
+            
+        } catch{
+            print("Button sound did not load.")
+        }
+        playButton.volume = 0.2
+        playButton.play()
+    }
+    
+    var cardFlip = AVAudioPlayer()
+    func cardFlipSound()
+    {
+        let path = Bundle.main.path(forResource: "cardFlip", ofType:"wav")
+        
+        do {
+            
+            playButton = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path!))
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default, options: [AVAudioSession.CategoryOptions.mixWithOthers])
+            
+        } catch{
+            print("Card sound did not load.")
+        }
+        cardFlip.volume = 5
+        cardFlip.play()
     }
 }
 
