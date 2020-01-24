@@ -194,9 +194,7 @@ class ViewController: UIViewController {
         {
             flipCard(sender: cardsPhone[selectedCard])
             
-            DispatchQueue.main.async {
-                self.cardFlipSound()
-            }
+            cardFlipSound()
             
             if self.cardsSelected == 0
             {
@@ -265,19 +263,19 @@ class ViewController: UIViewController {
     
     var minutes = 0
     var seconds = -5
-    var milliseconds = 0
-    var currentTime = Timer()
+    var currentTime: Timer?
     var timerIsRunning = false
     
     func startTimer()
     {
-        currentTime = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: {[weak self ] (_) in
+        currentTime = nil
+        currentTime = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {[weak self ] (_) in
             
             guard let strongSelf = self else { return }
             
-            strongSelf.milliseconds += 1
-            if strongSelf.milliseconds == 100 { strongSelf.seconds += 1; strongSelf.milliseconds = 0 }
-            else if strongSelf.seconds == 60 {strongSelf.minutes += 1; strongSelf.seconds = 0}
+            strongSelf.seconds += 1
+            
+            if strongSelf.seconds == 60 {strongSelf.minutes += 1; strongSelf.seconds = 0}
             
             if strongSelf.seconds < 0
             {
@@ -285,17 +283,17 @@ class ViewController: UIViewController {
             }
             else
             {
-                strongSelf.countdownTimer.text = "Time: \(String(format: "%02d:%02d:%02d", strongSelf.minutes, strongSelf.seconds, strongSelf.milliseconds))"
+                strongSelf.countdownTimer.text = "Time: \(String(format: "%02d:%02d", strongSelf.minutes, strongSelf.seconds))"
             }
         })
     }
     
     func stopTimer()
     {
-        currentTime.invalidate()
+        currentTime?.invalidate()
+        currentTime = nil
         minutes = 0
         seconds = -5
-        milliseconds = 0
     }
     
     func isGameWon()
@@ -303,14 +301,15 @@ class ViewController: UIViewController {
         if currentMatches == 10
         {
             
-            let alert = UIAlertController(title: "You Won!", message: "Time: \(String(format: "%02d:%02d:%02d", minutes, seconds, milliseconds)) Matches:\(currentMatches) Attempts: \(currentAttempts)", preferredStyle: .alert)
+            let alert = UIAlertController(title: "You Won!", message: "Time: \(String(format: "%02d:%02d:%02d", minutes, seconds)) Matches:\(currentMatches) Attempts: \(currentAttempts)", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { action in
                 self.playButtonView.image = UIImage(named: "PlayButton")
             }))
             
             
-            currentTime.invalidate()
+            currentTime?.invalidate()
+            currentTime = nil
             self.present(alert, animated: true, completion: nil)
             
             //INFO: Show all the matches from previous game.
@@ -409,7 +408,7 @@ class ViewController: UIViewController {
             print("Background music did not load.")
         }
         backgroundMusic.numberOfLoops = -1
-        backgroundMusic.volume = 1
+        backgroundMusic.volume = 0.01
         backgroundMusic.play()
     }
     
@@ -437,14 +436,17 @@ class ViewController: UIViewController {
         
         do {
             
-            playButton = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path!))
+            cardFlip = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path!))
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default, options: [AVAudioSession.CategoryOptions.mixWithOthers])
             
         } catch{
             print("Card sound did not load.")
         }
         cardFlip.volume = 5
-        cardFlip.play()
+        
+        DispatchQueue.main.async {
+            self.cardFlip.play()
+        }
     }
 }
 
