@@ -83,6 +83,8 @@ class ViewController: UIViewController {
         }
         
         cardsImages = Array(getImageSet(numOfImagesToReturn: numOfImagesToReturn))
+        
+        //INFO: Make sure that we have 2 copies of each card in the images.
         cardsImages += cardsImages
         cardsImages.shuffle()
         
@@ -143,6 +145,8 @@ class ViewController: UIViewController {
             flipCard(sender: card)
         }
         
+        
+        
         DispatchQueue.global(qos: .default).asyncAfter(deadline: .now() + 5) {
             
             for card in self.cardsPhone
@@ -152,7 +156,8 @@ class ViewController: UIViewController {
                 }
                 usleep(20000)
             }
-            DispatchQueue.main.sync{
+            
+            DispatchQueue.main.async{
                 //INFO: Enable cards after hidden.
                 for card in self.cardsPhone
                 {
@@ -357,14 +362,17 @@ class ViewController: UIViewController {
     func flipCard(sender: UIImageView)
     {
         playButtonView.isUserInteractionEnabled = false
-        if sender.image == UIImage()
+        
+        //INFO: If there is no UIImage, assign the appropriate image from the array.
+        if sender.image == nil
         {
             sender.image = cardsImages[sender.tag]
             UIView.transition(with: sender, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
         }
+        //INFO: If there is an image, remove it and replace with no Image.
         else
         {
-            sender.image = UIImage()
+            sender.image = nil
             UIView.transition(with: sender, duration: 0.3, options: .transitionFlipFromRight, animations: nil, completion: nil)
         }
     }
@@ -394,7 +402,7 @@ class ViewController: UIViewController {
     }
     
     //MARK: - Audio
-    var backgroundMusic = AVAudioPlayer()
+    var backgroundMusic: AVAudioPlayer!
     func startBackgroundMusic()
     {
         let path = Bundle.main.path(forResource: "backgroundJam", ofType:"mp3")
@@ -412,7 +420,7 @@ class ViewController: UIViewController {
         backgroundMusic.play()
     }
     
-    var playButton = AVAudioPlayer()
+    var playButton: AVAudioPlayer!
     func playButtonSound()
     {
         let path = Bundle.main.path(forResource: "buttonHit", ofType:"mp3")
@@ -429,7 +437,7 @@ class ViewController: UIViewController {
         playButton.play()
     }
     
-    var cardFlip = AVAudioPlayer()
+    var cardFlip: AVAudioPlayer!
     func cardFlipSound()
     {
         let path = Bundle.main.path(forResource: "cardFlip", ofType:"wav")
