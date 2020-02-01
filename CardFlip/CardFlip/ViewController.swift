@@ -413,9 +413,6 @@ class ViewController: UIViewController {
             //INFO: If there is an image, remove it and replace with no Image.
         else
         {
-            
-            
-            
             let rect = CGRect(origin: .zero, size: sender.layer.bounds.size)
             UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
             UIColor.init(named: "BackgroundColor")?.setFill()
@@ -424,13 +421,6 @@ class ViewController: UIViewController {
             let image = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
             guard let cgImage = image?.cgImage else { return }
-            
-            
-            
-            
-            
-            
-            
             
             //BUG: Line of code causes views to disappear on new play.
             sender.image = UIImage(cgImage: cgImage)
