@@ -164,6 +164,8 @@ class ViewController: UIViewController {
                 for card in self.cardsPhone
                 {
                     card.isUserInteractionEnabled = true
+                    //INFO: If not exclusive, then it will result in an "Index Out Of Bounds" error. 
+                    card.isExclusiveTouch = true
                 }
                 
                 //INFO: Enable play button after cards are hidden to prevent crashing layout.
@@ -467,7 +469,7 @@ class ViewController: UIViewController {
             print("Background music did not load.")
         }
         backgroundMusic.numberOfLoops = -1
-        backgroundMusic.volume = 0.01
+        backgroundMusic.volume = 1
         backgroundMusic.play()
     }
     
@@ -484,7 +486,7 @@ class ViewController: UIViewController {
         } catch{
             print("Button sound did not load.")
         }
-        playButton.volume = 0.2
+        playButton.volume = 0.5
         playButton.play()
     }
     
@@ -501,7 +503,7 @@ class ViewController: UIViewController {
         } catch{
             print("Card sound did not load.")
         }
-        cardFlip.volume = 5
+        cardFlip.volume = 1
         
         DispatchQueue.main.async {
             self.cardFlip.play()
