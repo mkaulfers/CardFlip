@@ -253,7 +253,7 @@ class ViewController: UIViewController {
                         {
                             //INFO: Add match counter
                             self.currentMatches += 1
-                            //self.matchesLabel.text = "Matches  \(self.currentMatches)"
+                            self.matchesLabel.text = "\(self.currentMatches)"
                             
                             self.setColorImage(viewToModify: self.cardsPhone[self.firstSelectedTag], colorToSet: UIColor.clear)
                             self.setColorImage(viewToModify: self.cardsPhone[selectedCard], colorToSet: UIColor.clear)
@@ -264,7 +264,7 @@ class ViewController: UIViewController {
                         else{
                             //INFO: Add attempts counter.
                             self.currentAttempts += 1
-                            //self.attemptsLabel.text = "Attempts  \(self.currentAttempts)"
+                            self.attemptsLabel.text = "\(self.currentAttempts)"
                             
                             //INFO: Re-enable selection because no match.
                             self.cardsPhone[self.firstSelectedTag].isUserInteractionEnabled = true
@@ -298,6 +298,10 @@ class ViewController: UIViewController {
     var currentTime: Timer?
     var timerIsRunning = false
     
+    //INFO: Landscape variables.
+    @IBOutlet weak var landscapeTimerCounter: UILabel!
+    @IBOutlet weak var landscapeTimeLabel: UILabel!
+    
     func startTimer()
     {
         currentTime = nil
@@ -312,10 +316,14 @@ class ViewController: UIViewController {
             if strongSelf.seconds < 0
             {
                 strongSelf.countdownTimer.text = "Start In: \(strongSelf.seconds)"
+                strongSelf.landscapeTimeLabel.text = "Start In"
+                strongSelf.landscapeTimerCounter.text = "\(strongSelf.seconds)"
             }
             else
             {
                 strongSelf.countdownTimer.text = "Time: \(String(format: "%02d:%02d", strongSelf.minutes, strongSelf.seconds))"
+                strongSelf.landscapeTimeLabel.text = "Time"
+                strongSelf.landscapeTimerCounter.text = "\(String(format: "%02d:%02d", strongSelf.minutes, strongSelf.seconds))"
             }
         })
     }
