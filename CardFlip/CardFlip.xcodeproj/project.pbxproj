@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		AE65520D23D260D5002C78B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE65520C23D260D5002C78B1 /* AppDelegate.swift */; };
 		AE65520F23D260D5002C78B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE65520E23D260D5002C78B1 /* SceneDelegate.swift */; };
-		AE65521123D260D5002C78B1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE65521023D260D5002C78B1 /* ViewController.swift */; };
+		AE65521123D260D5002C78B1 /* LandingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE65521023D260D5002C78B1 /* LandingPage.swift */; };
 		AE65521423D260D5002C78B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE65521223D260D5002C78B1 /* Main.storyboard */; };
 		AE65521623D260D7002C78B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE65521523D260D7002C78B1 /* Assets.xcassets */; };
-		AEB28D4523D3AEAB003C026F /* ShadowCornerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB28D4423D3AEAB003C026F /* ShadowCornerImageView.swift */; };
+		AE7C757E23E696DA00EE5C50 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7C757D23E696DA00EE5C50 /* Leaderboard.swift */; };
+		AE7C758123E699FC00EE5C50 /* LeaderboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7C757F23E699FC00EE5C50 /* LeaderboardCell.swift */; };
+		AE7C758223E699FC00EE5C50 /* LeaderboardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE7C758023E699FC00EE5C50 /* LeaderboardCell.xib */; };
 		AEE087B523D547DD00758140 /* buttonHit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AEE087B223D547DD00758140 /* buttonHit.mp3 */; };
 		AEE087B623D547DD00758140 /* backgroundJam.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AEE087B323D547DD00758140 /* backgroundJam.mp3 */; };
 		AEE087B723D547DD00758140 /* cardFlip.wav in Resources */ = {isa = PBXBuildFile; fileRef = AEE087B423D547DD00758140 /* cardFlip.wav */; };
@@ -23,11 +25,13 @@
 		AE65520923D260D5002C78B1 /* CardFlip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardFlip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE65520C23D260D5002C78B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE65520E23D260D5002C78B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AE65521023D260D5002C78B1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AE65521023D260D5002C78B1 /* LandingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPage.swift; sourceTree = "<group>"; };
 		AE65521323D260D5002C78B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AE65521523D260D7002C78B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE65521A23D260D7002C78B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AEB28D4423D3AEAB003C026F /* ShadowCornerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowCornerImageView.swift; sourceTree = "<group>"; };
+		AE7C757D23E696DA00EE5C50 /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
+		AE7C757F23E699FC00EE5C50 /* LeaderboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardCell.swift; sourceTree = "<group>"; };
+		AE7C758023E699FC00EE5C50 /* LeaderboardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaderboardCell.xib; sourceTree = "<group>"; };
 		AEE087B223D547DD00758140 /* buttonHit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buttonHit.mp3; sourceTree = "<group>"; };
 		AEE087B323D547DD00758140 /* backgroundJam.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundJam.mp3; sourceTree = "<group>"; };
 		AEE087B423D547DD00758140 /* cardFlip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cardFlip.wav; sourceTree = "<group>"; };
@@ -66,9 +70,11 @@
 			children = (
 				AE65520C23D260D5002C78B1 /* AppDelegate.swift */,
 				AE65520E23D260D5002C78B1 /* SceneDelegate.swift */,
-				AE65521023D260D5002C78B1 /* ViewController.swift */,
+				AE65521023D260D5002C78B1 /* LandingPage.swift */,
+				AE7C757D23E696DA00EE5C50 /* Leaderboard.swift */,
 				AE65521223D260D5002C78B1 /* Main.storyboard */,
-				AEB28D4423D3AEAB003C026F /* ShadowCornerImageView.swift */,
+				AE7C757F23E699FC00EE5C50 /* LeaderboardCell.swift */,
+				AE7C758023E699FC00EE5C50 /* LeaderboardCell.xib */,
 				AE65521523D260D7002C78B1 /* Assets.xcassets */,
 				AE65521A23D260D7002C78B1 /* Info.plist */,
 				AEE087B323D547DD00758140 /* backgroundJam.mp3 */,
@@ -142,6 +148,7 @@
 				AE65521623D260D7002C78B1 /* Assets.xcassets in Resources */,
 				AE65521423D260D5002C78B1 /* Main.storyboard in Resources */,
 				AEF3D3CB23E63C5B005474D5 /* laserSound.wav in Resources */,
+				AE7C758223E699FC00EE5C50 /* LeaderboardCell.xib in Resources */,
 				AEE087B623D547DD00758140 /* backgroundJam.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,10 +160,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE65521123D260D5002C78B1 /* ViewController.swift in Sources */,
+				AE65521123D260D5002C78B1 /* LandingPage.swift in Sources */,
+				AE7C758123E699FC00EE5C50 /* LeaderboardCell.swift in Sources */,
+				AE7C757E23E696DA00EE5C50 /* Leaderboard.swift in Sources */,
 				AE65520D23D260D5002C78B1 /* AppDelegate.swift in Sources */,
 				AE65520F23D260D5002C78B1 /* SceneDelegate.swift in Sources */,
-				AEB28D4523D3AEAB003C026F /* ShadowCornerImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

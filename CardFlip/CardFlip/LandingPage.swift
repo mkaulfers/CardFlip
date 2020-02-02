@@ -173,7 +173,7 @@ class ViewController: UIViewController {
         
         self.currentMatches = 0
         self.currentAttempts = 0
-        
+
         if UIDevice.current.userInterfaceIdiom == .phone
         {
             //INFO: Disable cards while viewing.
@@ -189,6 +189,9 @@ class ViewController: UIViewController {
             //INFO: Disable cards while viewing.
             for card in cardsPad
             {
+                attemptsLabel.text = "0"
+                matchesLabel.text = "0"
+                
                 setColorImage(viewToModify: card, colorToSet: UIColor(named: "BackgroundColor")!)
                 card.isUserInteractionEnabled = false
                 flipCard(sender: card)
@@ -202,26 +205,26 @@ class ViewController: UIViewController {
             
             if UIDevice.current.userInterfaceIdiom == .phone
             {
-                for card in self.cardsPhone
-                {
-                    DispatchQueue.main.async {
-                        self.flipCard(sender: card)
-                    }
-                    usleep(20000)
-                }
-                
-                DispatchQueue.main.async{
-                    //INFO: Enable cards after hidden.
                     for card in self.cardsPhone
                     {
-                        card.isUserInteractionEnabled = true
-                        //INFO: If not exclusive, then it will result in an "Index Out Of Bounds" error.
-                        card.isExclusiveTouch = true
+                        DispatchQueue.main.async {
+                            self.flipCard(sender: card)
+                        }
+                        usleep(20000)
                     }
                     
-                    //INFO: Enable play button after cards are hidden to prevent crashing layout.
-                    self.playButtonView.isUserInteractionEnabled = true
-                }
+                    DispatchQueue.main.async{
+                        //INFO: Enable cards after hidden.
+                        for card in self.cardsPhone
+                        {
+                            card.isUserInteractionEnabled = true
+                            //INFO: If not exclusive, then it will result in an "Index Out Of Bounds" error.
+                            card.isExclusiveTouch = true
+                        }
+                        
+                        //INFO: Enable play button after cards are hidden to prevent crashing layout.
+                        self.playButtonView.isUserInteractionEnabled = true
+                    }
             }
             else
             {
@@ -410,13 +413,13 @@ class ViewController: UIViewController {
                             }
                             else
                             {
-                                //INFO: Re-enable selection because no match.
-                                self.cardsPad[self.firstSelectedTag].isUserInteractionEnabled = true
-                                self.cardsPad[selectedCard].isUserInteractionEnabled = true
-                                
-                                //INFO: Flip them back over.
-                                self.flipCard(sender: self.cardsPad[self.firstSelectedTag])
-                                self.flipCard(sender: self.cardsPad[selectedCard])
+                                    //INFO: Re-enable selection because no match.
+                                    self.cardsPad[self.firstSelectedTag].isUserInteractionEnabled = true
+                                    self.cardsPad[selectedCard].isUserInteractionEnabled = true
+                                    
+                                    //INFO: Flip them back over.
+                                    self.flipCard(sender: self.cardsPad[self.firstSelectedTag])
+                                    self.flipCard(sender: self.cardsPad[selectedCard])
                             }
                         }
                         
