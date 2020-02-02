@@ -34,6 +34,7 @@ class Leaderboard: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        currentHighScores.sort(by: { $0.playerTime < $1.playerTime})
         tableView.reloadData()
     }
 }
