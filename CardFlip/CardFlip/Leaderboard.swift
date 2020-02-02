@@ -31,10 +31,6 @@ class Leaderboard: UIViewController, UITableViewDelegate, UITableViewDataSource 
         super.viewDidLoad()
         //INFO: Register our cell name.
         tableView.register(UINib(nibName: "LeaderboardCell", bundle: nil), forCellReuseIdentifier: "leaderboardCell")
-        currentHighScores.append(HighScore())
-        currentHighScores.append(HighScore())
-        currentHighScores.append(HighScore())
-        currentHighScores.append(HighScore())
     }
     
     override func viewWillAppear(_ animated: Bool) {

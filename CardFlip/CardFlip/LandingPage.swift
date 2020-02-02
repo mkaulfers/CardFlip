@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     //INFO: Other UI Variables
     @IBOutlet weak var playButtonView: UIImageView!
     @IBOutlet weak var countdownTimer: UILabel!
+    @IBOutlet var detailsView: UIView!
+    @IBOutlet var gameWonPopup: UIView!
     
     //INFO: Static Variables
     var cardsImages: [UIImage] = [UIImage]()
@@ -30,6 +32,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        gameWonPopup.isHidden = true
+        
+        detailsView.layer.cornerRadius = 15
+        detailsView.clipsToBounds = true
         
         startBackgroundMusic()
         
@@ -173,7 +179,7 @@ class ViewController: UIViewController {
         
         self.currentMatches = 0
         self.currentAttempts = 0
-
+        
         if UIDevice.current.userInterfaceIdiom == .phone
         {
             //INFO: Disable cards while viewing.
@@ -205,26 +211,26 @@ class ViewController: UIViewController {
             
             if UIDevice.current.userInterfaceIdiom == .phone
             {
+                for card in self.cardsPhone
+                {
+                    DispatchQueue.main.async {
+                        self.flipCard(sender: card)
+                    }
+                    usleep(20000)
+                }
+                
+                DispatchQueue.main.async{
+                    //INFO: Enable cards after hidden.
                     for card in self.cardsPhone
                     {
-                        DispatchQueue.main.async {
-                            self.flipCard(sender: card)
-                        }
-                        usleep(20000)
+                        card.isUserInteractionEnabled = true
+                        //INFO: If not exclusive, then it will result in an "Index Out Of Bounds" error.
+                        card.isExclusiveTouch = true
                     }
                     
-                    DispatchQueue.main.async{
-                        //INFO: Enable cards after hidden.
-                        for card in self.cardsPhone
-                        {
-                            card.isUserInteractionEnabled = true
-                            //INFO: If not exclusive, then it will result in an "Index Out Of Bounds" error.
-                            card.isExclusiveTouch = true
-                        }
-                        
-                        //INFO: Enable play button after cards are hidden to prevent crashing layout.
-                        self.playButtonView.isUserInteractionEnabled = true
-                    }
+                    //INFO: Enable play button after cards are hidden to prevent crashing layout.
+                    self.playButtonView.isUserInteractionEnabled = true
+                }
             }
             else
             {
@@ -413,13 +419,13 @@ class ViewController: UIViewController {
                             }
                             else
                             {
-                                    //INFO: Re-enable selection because no match.
-                                    self.cardsPad[self.firstSelectedTag].isUserInteractionEnabled = true
-                                    self.cardsPad[selectedCard].isUserInteractionEnabled = true
-                                    
-                                    //INFO: Flip them back over.
-                                    self.flipCard(sender: self.cardsPad[self.firstSelectedTag])
-                                    self.flipCard(sender: self.cardsPad[selectedCard])
+                                //INFO: Re-enable selection because no match.
+                                self.cardsPad[self.firstSelectedTag].isUserInteractionEnabled = true
+                                self.cardsPad[selectedCard].isUserInteractionEnabled = true
+                                
+                                //INFO: Flip them back over.
+                                self.flipCard(sender: self.cardsPad[self.firstSelectedTag])
+                                self.flipCard(sender: self.cardsPad[selectedCard])
                             }
                         }
                         
@@ -484,21 +490,27 @@ class ViewController: UIViewController {
         seconds = -5
     }
     
+    //MARK: - Game Won
+    //INFO: Variables to hold game won stats.
+    var currentLeaderBoard = [HighScore]()
+    @IBOutlet var timeLabel: UILabel!
+    @IBOutlet var currentAttemptsLabel: UILabel!
+    @IBOutlet var currentMatchesLabel: UILabel!
+    
+    
     func isGameWon()
     {
         if (currentMatches == 10 && UIDevice.current.userInterfaceIdiom == .phone) || (currentMatches == 15 && UIDevice.current.userInterfaceIdiom == .pad)
         {
             
-            let alert = UIAlertController(title: "You Won!", message: "Time: \(String(format: "%02d:%02d:%02d", minutes, seconds)) Matches:\(currentMatches) Attempts: \(currentAttempts)", preferredStyle: .alert)
+            gameWonPopup.isHidden = false
             
-            alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { action in
-                self.playButtonView.image = UIImage(named: "PlayButton")
-            }))
+            timeLabel.text = "\(String(format: "%02d:%02d", minutes, seconds))"
             
+            currentMatchesLabel.text = currentMatches.description
+            currentAttemptsLabel.text = currentAttempts.description
             
             currentTime?.invalidate()
-            currentTime = nil
-            self.present(alert, animated: true, completion: nil)
             
             if UIDevice.current.userInterfaceIdiom == .phone
             {
@@ -528,6 +540,17 @@ class ViewController: UIViewController {
         }
         
         
+    }
+    
+    @IBOutlet var playersName: UITextField!
+    
+    @IBAction func addToHighScore(_ sender: Any) {
+        currentLeaderBoard.append(HighScore(playerName: playersName.text ?? "Unknown", playerTime: timeLabel.text!, playerMatches: Int(currentMatchesLabel.text!)!, playerAttempts: Int(currentAttemptsLabel.text!)!))
+        gameWonPopup.isHidden = true
+    }
+    
+    @IBAction func cancelHighScore(_ sender: Any) {
+        gameWonPopup.isHidden = true
     }
     
     //MARK: - User Options
@@ -622,6 +645,12 @@ class ViewController: UIViewController {
         },
                        completion: { Void in()  }
         )
+    }
+    
+    //MARK: - Segue's and Control
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as? Leaderboard
+        destination?.currentHighScores = currentLeaderBoard
     }
     
     //MARK: - Audio
