@@ -25,10 +25,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="116"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MainLogo" translatesAutoresizingMaskIntoConstraints="NO" id="bhA-Zm-lIH">
-                                        <rect key="frame" x="147.33333333333334" y="44" width="119.33333333333337" height="64"/>
+                                        <rect key="frame" x="88" y="44" width="238" height="64"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="playback" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ByI-M5-Vlh">
-                                        <rect key="frame" x="0.0" y="44" width="147.33333333333334" height="64"/>
+                                        <rect key="frame" x="0.0" y="44" width="88" height="64"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                         <color key="tintColor" red="0.90196078430000004" green="0.31372549020000001" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="High Scores" image="star.circle.fill" catalog="system">
@@ -1192,17 +1192,17 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="Cma-fY-Rdj"/>
-                                <exclude reference="Rdt-69-snH"/>
-                                <exclude reference="iOS-Di-yuz"/>
-                                <exclude reference="zMj-ci-LWR"/>
+                                <exclude reference="BC3-0h-a6s"/>
+                                <exclude reference="pKY-Kf-jzM"/>
+                                <exclude reference="veB-Xq-UbP"/>
                                 <exclude reference="4cj-RP-CrB"/>
                                 <exclude reference="8xR-vk-Vs8"/>
                                 <exclude reference="GWN-n9-15V"/>
                                 <exclude reference="Nfu-lj-TwH"/>
-                                <exclude reference="BC3-0h-a6s"/>
-                                <exclude reference="pKY-Kf-jzM"/>
-                                <exclude reference="veB-Xq-UbP"/>
+                                <exclude reference="Cma-fY-Rdj"/>
+                                <exclude reference="Rdt-69-snH"/>
+                                <exclude reference="iOS-Di-yuz"/>
+                                <exclude reference="zMj-ci-LWR"/>
                                 <exclude reference="2Ra-eo-saC"/>
                                 <exclude reference="fxm-jl-bcm"/>
                                 <exclude reference="7pY-ZS-Mnq"/>
@@ -1214,14 +1214,13 @@
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
-                                <exclude reference="BOd-ld-y6h"/>
-                                <include reference="Cma-fY-Rdj"/>
-                                <include reference="Rdt-69-snH"/>
-                                <exclude reference="bXY-cM-cUe"/>
-                                <exclude reference="gUI-I5-VF8"/>
-                                <include reference="iOS-Di-yuz"/>
-                                <exclude reference="xIC-pn-3IG"/>
-                                <include reference="zMj-ci-LWR"/>
+                                <exclude reference="39Y-XN-9TJ"/>
+                                <exclude reference="BC3-0h-a6s"/>
+                                <exclude reference="Og5-Pp-CC3"/>
+                                <exclude reference="XUQ-Tz-e7A"/>
+                                <include reference="pKY-Kf-jzM"/>
+                                <exclude reference="s8v-HZ-jp8"/>
+                                <include reference="veB-Xq-UbP"/>
                                 <exclude reference="3c9-T1-Xer"/>
                                 <include reference="4cj-RP-CrB"/>
                                 <include reference="8xR-vk-Vs8"/>
@@ -1230,13 +1229,14 @@
                                 <exclude reference="IWq-aW-ibr"/>
                                 <include reference="Nfu-lj-TwH"/>
                                 <exclude reference="sZh-IX-oCG"/>
-                                <exclude reference="39Y-XN-9TJ"/>
-                                <exclude reference="BC3-0h-a6s"/>
-                                <exclude reference="Og5-Pp-CC3"/>
-                                <exclude reference="XUQ-Tz-e7A"/>
-                                <include reference="pKY-Kf-jzM"/>
-                                <exclude reference="s8v-HZ-jp8"/>
-                                <include reference="veB-Xq-UbP"/>
+                                <exclude reference="BOd-ld-y6h"/>
+                                <include reference="Cma-fY-Rdj"/>
+                                <include reference="Rdt-69-snH"/>
+                                <exclude reference="bXY-cM-cUe"/>
+                                <exclude reference="gUI-I5-VF8"/>
+                                <include reference="iOS-Di-yuz"/>
+                                <exclude reference="xIC-pn-3IG"/>
+                                <include reference="zMj-ci-LWR"/>
                                 <include reference="2Ra-eo-saC"/>
                                 <exclude reference="2v1-8l-shb"/>
                                 <include reference="fxm-jl-bcm"/>

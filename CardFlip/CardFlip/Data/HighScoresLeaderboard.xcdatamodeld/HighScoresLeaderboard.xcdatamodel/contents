@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19C57" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="TotalHighScores" representedClassName="TotalHighScores" syncable="YES">
+        <attribute name="playerName_CD" optional="YES" attributeType="String"/>
+        <attribute name="timeCompleted_CD" optional="YES" attributeType="String"/>
+        <attribute name="totalAttempts_CD" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalMatches_CD" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="TotalHighScores" positionX="-63" positionY="-18" width="128" height="103"/>
+    </elements>
+</model>

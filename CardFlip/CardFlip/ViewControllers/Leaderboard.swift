@@ -34,6 +34,6 @@ class Leaderboard: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        tableView.reloadData()
     }
 }

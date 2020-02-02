@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import AVFoundation
 
 class ViewController: UIViewController {
@@ -28,12 +29,15 @@ class ViewController: UIViewController {
     //INFO: Image Set Variable
     var imageSet = "r"
     
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     //MARK: - Start of Main
     override func viewDidLoad() {
         super.viewDidLoad()
         
         gameWonPopup.isHidden = true
-        
+        loadData()
         detailsView.layer.cornerRadius = 15
         detailsView.clipsToBounds = true
         
@@ -547,6 +551,37 @@ class ViewController: UIViewController {
     @IBAction func addToHighScore(_ sender: Any) {
         currentLeaderBoard.append(HighScore(playerName: playersName.text ?? "Unknown", playerTime: timeLabel.text!, playerMatches: Int(currentMatchesLabel.text!)!, playerAttempts: Int(currentAttemptsLabel.text!)!))
         gameWonPopup.isHidden = true
+        
+        let highScore = TotalHighScores(context: context)
+        highScore.playerName_CD = playersName.text ?? "Unknown"
+        highScore.timeCompleted_CD = timeLabel.text!
+        highScore.totalMatches_CD = Int16(currentMatchesLabel.text!)!
+        highScore.totalAttempts_CD = Int16(currentAttemptsLabel.text!)!
+        do{
+            try context.save()
+            print("Saving did work! Wewt!")
+        } catch
+        {
+            print("Saving did not work!")
+        }
+    }
+    
+    func loadData()
+    {
+        let data = NSFetchRequest<NSFetchRequestResult>(entityName: "TotalHighScores")
+        
+        do{
+            if let tempArry = try context.fetch(data) as? [TotalHighScores]
+            {
+                currentLeaderBoard = [HighScore]()
+                for highScore in tempArry
+                {
+                    currentLeaderBoard.append(HighScore(playerName: highScore.playerName_CD!, playerTime: highScore.timeCompleted_CD!, playerMatches: Int(highScore.totalAttempts_CD), playerAttempts: Int(highScore.totalAttempts_CD)))
+                }
+            }
+        } catch{
+            
+        }
     }
     
     @IBAction func cancelHighScore(_ sender: Any) {
