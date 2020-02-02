@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     //MARK: - Variables
     //INFO: Cards
     @IBOutlet var cardsPhone: [UIImageView]!
+    @IBOutlet var cardsPad: [UIImageView]!
     
     //INFO: Other UI Variables
     @IBOutlet weak var playButtonView: UIImageView!
@@ -35,17 +36,11 @@ class ViewController: UIViewController {
         
         //INFO: Sort so we can properly match
         cardsPhone.sort(by: {$0.tag < $1.tag})
+        cardsPad.sort(by: {$0.tag < $1.tag})
         
         //INFO: Set their view.
         
-        if UIDevice.current.userInterfaceIdiom == .phone
-        {
-            setCardViewPhone()
-        }
-        else
-        {
-            print("You're on something else. ")
-        }
+        setCardViewPhone()
         
         //INFO: Disable all buttons.
         allCardsInteractionDisabled()
@@ -72,53 +67,93 @@ class ViewController: UIViewController {
         addGesturetoCards()
         //INFO: Convert set to an array, then shuffle.
         
-        var numOfImagesToReturn = 0
-        
         if UIDevice.current.userInterfaceIdiom == .phone {
-            numOfImagesToReturn = 10
+            cardsImages = Array(getImageSet(numOfImagesToReturn: 10))
+            
+            //INFO: Make sure that we have 2 copies of each card in the images.
+            cardsImages += cardsImages
+            cardsImages.shuffle()
+            
+            //INFO: Assign images from our selectedImagesArray to the cards.
+            for (i, card) in cardsPhone.enumerated()
+            {
+                card.image = cardsImages[i]
+            }
         }
         else
         {
-            numOfImagesToReturn = 15
-        }
-        
-        cardsImages = Array(getImageSet(numOfImagesToReturn: numOfImagesToReturn))
-        
-        //INFO: Make sure that we have 2 copies of each card in the images.
-        cardsImages += cardsImages
-        cardsImages.shuffle()
-        
-        //INFO: Assign images from our selectedImagesArray to the cards.
-        for (i, card) in cardsPhone.enumerated()
-        {
-            card.image = cardsImages[i]
+            cardsImages = Array(getImageSet(numOfImagesToReturn: 15))
+            
+            //INFO: Make sure that we have 2 copies of each card in the images.
+            cardsImages += cardsImages
+            cardsImages.shuffle()
+            
+            //INFO: Assign images from our selectedImagesArray to the cards.
+            for (i, card) in cardsPad.enumerated()
+            {
+                card.image = cardsImages[i]
+            }
         }
     }
     
     fileprivate func addGesturetoCards()
     {
-        //INFO: Add GestureRecognizer to each card and round corners.
-        for card in cardsPhone
+        
+        if UIDevice.current.userInterfaceIdiom == .phone
         {
-            card.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(playCard(_:))))
-            card.layer.cornerRadius = 15
-            card.clipsToBounds = true
+            //INFO: Add GestureRecognizer to each card and round corners.
+            for card in cardsPhone
+            {
+                card.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(playCard(_:))))
+                card.layer.cornerRadius = 15
+                card.clipsToBounds = true
+            }
+        }
+        else
+        {
+            //INFO: Add GestureRecognizer to each card and round corners.
+            for card in cardsPad
+            {
+                card.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(playCard(_:))))
+                card.layer.cornerRadius = 15
+                card.clipsToBounds = true
+            }
         }
     }
     
     func allCardsInteractionDisabled()
     {
-        for card in cardsPhone
+        if UIDevice.current.userInterfaceIdiom == .phone
         {
-            card.isUserInteractionEnabled = false
+            for card in cardsPhone
+            {
+                card.isUserInteractionEnabled = false
+            }
+        }
+        else
+        {
+            for card in cardsPad
+            {
+                card.isUserInteractionEnabled = false
+            }
         }
     }
     
     func allCardsInteractionEnabled()
     {
-        for card in cardsPhone
+        if UIDevice.current.userInterfaceIdiom == .phone
         {
-            card.isUserInteractionEnabled = true
+            for card in cardsPhone
+            {
+                card.isUserInteractionEnabled = true
+            }
+        }
+        else
+        {
+            for card in cardsPad
+            {
+                card.isUserInteractionEnabled = true
+            }
         }
     }
     
@@ -139,47 +174,97 @@ class ViewController: UIViewController {
         self.currentMatches = 0
         self.currentAttempts = 0
         
-        //INFO: Disable cards while viewing.
-        for card in cardsPhone
+        if UIDevice.current.userInterfaceIdiom == .phone
         {
-            setColorImage(viewToModify: card, colorToSet: UIColor(named: "BackgroundColor")!)
-            card.isUserInteractionEnabled = false
-            flipCard(sender: card)
+            //INFO: Disable cards while viewing.
+            for card in cardsPhone
+            {
+                setColorImage(viewToModify: card, colorToSet: UIColor(named: "BackgroundColor")!)
+                card.isUserInteractionEnabled = false
+                flipCard(sender: card)
+            }
         }
-        
+        else
+        {
+            //INFO: Disable cards while viewing.
+            for card in cardsPad
+            {
+                setColorImage(viewToModify: card, colorToSet: UIColor(named: "BackgroundColor")!)
+                card.isUserInteractionEnabled = false
+                flipCard(sender: card)
+            }
+        }
         
         
         DispatchQueue.global(qos: .default).asyncAfter(deadline: .now() + 5) {
             
-            for card in self.cardsPhone
-            {
-                DispatchQueue.main.async {
-                    self.flipCard(sender: card)
-                }
-                usleep(20000)
-            }
             
-            DispatchQueue.main.async{
-                //INFO: Enable cards after hidden.
+            
+            if UIDevice.current.userInterfaceIdiom == .phone
+            {
                 for card in self.cardsPhone
                 {
-                    card.isUserInteractionEnabled = true
-                    //INFO: If not exclusive, then it will result in an "Index Out Of Bounds" error. 
-                    card.isExclusiveTouch = true
+                    DispatchQueue.main.async {
+                        self.flipCard(sender: card)
+                    }
+                    usleep(20000)
                 }
                 
-                //INFO: Enable play button after cards are hidden to prevent crashing layout.
-                self.playButtonView.isUserInteractionEnabled = true
+                DispatchQueue.main.async{
+                    //INFO: Enable cards after hidden.
+                    for card in self.cardsPhone
+                    {
+                        card.isUserInteractionEnabled = true
+                        //INFO: If not exclusive, then it will result in an "Index Out Of Bounds" error.
+                        card.isExclusiveTouch = true
+                    }
+                    
+                    //INFO: Enable play button after cards are hidden to prevent crashing layout.
+                    self.playButtonView.isUserInteractionEnabled = true
+                }
+            }
+            else
+            {
+                for card in self.cardsPad
+                {
+                    DispatchQueue.main.async {
+                        self.flipCard(sender: card)
+                    }
+                    usleep(20000)
+                }
+                
+                DispatchQueue.main.async{
+                    //INFO: Enable cards after hidden.
+                    for card in self.cardsPad
+                    {
+                        card.isUserInteractionEnabled = true
+                        //INFO: If not exclusive, then it will result in an "Index Out Of Bounds" error.
+                        card.isExclusiveTouch = true
+                    }
+                    
+                    //INFO: Enable play button after cards are hidden to prevent crashing layout.
+                    self.playButtonView.isUserInteractionEnabled = true
+                }
             }
         }
         
         cardsSelected = 0
         firstSelectedCard = UIImage()
         secondSelectedCard = UIImage()
-        
-        for card in cardsPhone
+        //PICKUP HERE
+        if UIDevice.current.userInterfaceIdiom == .phone
         {
-            card.isHidden = false
+            for card in cardsPhone
+            {
+                card.isHidden = false
+            }
+        }
+        else
+        {
+            for card in cardsPhone
+            {
+                card.isHidden = false
+            }
         }
         
         setCardViewPhone()
@@ -209,7 +294,14 @@ class ViewController: UIViewController {
         {
             if let selectedCard = sender.view?.tag
             {
-                flipCard(sender: cardsPhone[selectedCard])
+                if UIDevice.current.userInterfaceIdiom == .phone
+                {
+                    flipCard(sender: cardsPhone[selectedCard])
+                }
+                else
+                {
+                    flipCard(sender: cardsPad[selectedCard])
+                }
                 
                 cardFlipSound()
                 
@@ -218,13 +310,30 @@ class ViewController: UIViewController {
                     //INFO: Save the index selected for future use.
                     firstSelectedCardIndex = selectedCard
                     
-                    self.cardsPhone[selectedCard].image = self.cardsImages[selectedCard]
+                    
+                    
+                    if UIDevice.current.userInterfaceIdiom == .phone
+                    {
+                        self.cardsPhone[selectedCard].image = self.cardsImages[selectedCard]
+                    }
+                    else
+                    {
+                        self.cardsPad[selectedCard].image = self.cardsImages[selectedCard]
+                    }
                     
                     //INFO: Set the tag for future use.
                     self.firstSelectedTag = selectedCard
                     
-                    //INFO: Disable use of the selected card.
-                    self.cardsPhone[selectedCard].isUserInteractionEnabled = false
+                    if UIDevice.current.userInterfaceIdiom == .phone
+                    {
+                        //INFO: Disable use of the selected card.
+                        self.cardsPhone[selectedCard].isUserInteractionEnabled = false
+                    }
+                    else
+                    {
+                        //INFO: Disable use of the selected card.
+                        self.cardsPad[selectedCard].isUserInteractionEnabled = false
+                    }
                     
                     //INFO: Store first selection.
                     self.firstSelectedCard = self.cardsImages[selectedCard]
@@ -237,8 +346,18 @@ class ViewController: UIViewController {
                     //INFO: Save the index selected for future use.
                     secondSelectedCardIndex = selectedCard
                     
-                    self.cardsPhone[selectedCard].image = self.cardsImages[selectedCard]
-                    self.cardsPhone[selectedCard].isUserInteractionEnabled = false
+                    
+                    
+                    if UIDevice.current.userInterfaceIdiom == .phone
+                    {
+                        self.cardsPhone[selectedCard].image = self.cardsImages[selectedCard]
+                        self.cardsPhone[selectedCard].isUserInteractionEnabled = false
+                    }
+                    else
+                    {
+                        self.cardsPad[selectedCard].image = self.cardsImages[selectedCard]
+                        self.cardsPad[selectedCard].isUserInteractionEnabled = false
+                    }
                     
                     //INFO: Disable use of the selected card.
                     allCardsInteractionDisabled()
@@ -251,28 +370,54 @@ class ViewController: UIViewController {
                         //INFO: Check for match condition.
                         if self.firstSelectedCard == self.secondSelectedCard
                         {
+                            self.laserSound()
+                            
                             //INFO: Add match counter
                             self.currentMatches += 1
                             self.matchesLabel.text = "\(self.currentMatches)"
                             
-                            self.setColorImage(viewToModify: self.cardsPhone[self.firstSelectedTag], colorToSet: UIColor.clear)
-                            self.setColorImage(viewToModify: self.cardsPhone[selectedCard], colorToSet: UIColor.clear)
-                            
-                            self.matchedCards.append(self.cardsPhone[self.firstSelectedCardIndex])
-                            self.matchedCards.append(self.cardsPhone[self.secondSelectedCardIndex])
+                            if UIDevice.current.userInterfaceIdiom == .phone
+                            {
+                                self.setColorImage(viewToModify: self.cardsPhone[self.firstSelectedTag], colorToSet: UIColor.clear)
+                                self.setColorImage(viewToModify: self.cardsPhone[selectedCard], colorToSet: UIColor.clear)
+                                
+                                self.matchedCards.append(self.cardsPhone[self.firstSelectedCardIndex])
+                                self.matchedCards.append(self.cardsPhone[self.secondSelectedCardIndex])
+                            }
+                            else
+                            {
+                                self.setColorImage(viewToModify: self.cardsPad[self.firstSelectedTag], colorToSet: UIColor.clear)
+                                self.setColorImage(viewToModify: self.cardsPad[selectedCard], colorToSet: UIColor.clear)
+                                
+                                self.matchedCards.append(self.cardsPad[self.firstSelectedCardIndex])
+                                self.matchedCards.append(self.cardsPad[self.secondSelectedCardIndex])
+                            }
                         }
                         else{
                             //INFO: Add attempts counter.
                             self.currentAttempts += 1
                             self.attemptsLabel.text = "\(self.currentAttempts)"
                             
-                            //INFO: Re-enable selection because no match.
-                            self.cardsPhone[self.firstSelectedTag].isUserInteractionEnabled = true
-                            self.cardsPhone[selectedCard].isUserInteractionEnabled = true
-                            
-                            //INFO: Flip them back over.
-                            self.flipCard(sender: self.cardsPhone[self.firstSelectedTag])
-                            self.flipCard(sender: self.cardsPhone[selectedCard])
+                            if UIDevice.current.userInterfaceIdiom == .phone
+                            {
+                                //INFO: Re-enable selection because no match.
+                                self.cardsPhone[self.firstSelectedTag].isUserInteractionEnabled = true
+                                self.cardsPhone[selectedCard].isUserInteractionEnabled = true
+                                
+                                //INFO: Flip them back over.
+                                self.flipCard(sender: self.cardsPhone[self.firstSelectedTag])
+                                self.flipCard(sender: self.cardsPhone[selectedCard])
+                            }
+                            else
+                            {
+                                //INFO: Re-enable selection because no match.
+                                self.cardsPad[self.firstSelectedTag].isUserInteractionEnabled = true
+                                self.cardsPad[selectedCard].isUserInteractionEnabled = true
+                                
+                                //INFO: Flip them back over.
+                                self.flipCard(sender: self.cardsPad[self.firstSelectedTag])
+                                self.flipCard(sender: self.cardsPad[selectedCard])
+                            }
                         }
                         
                         //INFO: Reset to a different attempt.
@@ -338,7 +483,7 @@ class ViewController: UIViewController {
     
     func isGameWon()
     {
-        if currentMatches == 10
+        if (currentMatches == 10 && UIDevice.current.userInterfaceIdiom == .phone) || (currentMatches == 15 && UIDevice.current.userInterfaceIdiom == .pad)
         {
             
             let alert = UIAlertController(title: "You Won!", message: "Time: \(String(format: "%02d:%02d:%02d", minutes, seconds)) Matches:\(currentMatches) Attempts: \(currentAttempts)", preferredStyle: .alert)
@@ -352,11 +497,25 @@ class ViewController: UIViewController {
             currentTime = nil
             self.present(alert, animated: true, completion: nil)
             
-            //INFO: Show all the matches from previous game.
-            for card in cardsPhone
+            if UIDevice.current.userInterfaceIdiom == .phone
             {
-                popIn(sender: card)
-                card.isHidden = false
+                //INFO: Show all the matches from previous game.
+                //BUG: They don't show properly at end of the game.
+                for card in cardsPhone
+                {
+                    popIn(sender: card)
+                    card.isHidden = false
+                }
+            }
+            else
+            {
+                //INFO: Show all the matches from previous game.
+                //BUG: They don't show properly at end of the game.
+                for card in cardsPad
+                {
+                    popIn(sender: card)
+                    card.isHidden = false
+                }
             }
             allCardsInteractionDisabled()
         }
@@ -515,6 +674,26 @@ class ViewController: UIViewController {
         
         DispatchQueue.main.async {
             self.cardFlip.play()
+        }
+    }
+    
+    var matchCard: AVAudioPlayer!
+    func laserSound()
+    {
+        let path = Bundle.main.path(forResource: "laserSound", ofType:"wav")
+        
+        do {
+            
+            matchCard = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path!))
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default, options: [AVAudioSession.CategoryOptions.mixWithOthers])
+            
+        } catch{
+            print("Card sound did not load.")
+        }
+        matchCard.volume = 0.5
+        
+        DispatchQueue.main.async {
+            self.matchCard.play()
         }
     }
 }

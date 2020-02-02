@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,20 +12,20 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CardFlip" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="MainView">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Liquid-Cheese" translatesAutoresizingMaskIntoConstraints="NO" id="fHu-gs-GAo" userLabel="BackgroundView">
-                                <rect key="frame" x="0.0" y="20" width="414" height="876"/>
+                                <rect key="frame" x="0.0" y="20" width="1024" height="1346"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tl5-2l-ivd" userLabel="TopSection">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="116"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="177"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HorizontalBackBanner" translatesAutoresizingMaskIntoConstraints="NO" id="cXq-ZE-dhd">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="116"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="177"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MainLogo" translatesAutoresizingMaskIntoConstraints="NO" id="bhA-Zm-lIH">
-                                        <rect key="frame" x="20" y="44" width="374" height="64"/>
+                                        <rect key="frame" x="20" y="0.0" width="984" height="169"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iE9-8m-G68" userLabel="DetailsView">
                                         <rect key="frame" x="20" y="113.33333333333334" width="139.33333333333334" height="300.66666666666663"/>
@@ -144,16 +144,16 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fO0-rR-VUl" userLabel="MiddleSection">
-                                <rect key="frame" x="0.0" y="116" width="414" height="618"/>
+                                <rect key="frame" x="0.0" y="177" width="1024" height="974"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Su4-vH-ymr" userLabel="CardsLayoutGrid">
-                                        <rect key="frame" x="17.333333333333343" y="85.333333333333343" width="379.33333333333326" height="447.33333333333326"/>
+                                        <rect key="frame" x="43" y="134.5" width="938" height="705"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="3zg-oh-aSC" userLabel="Row1-4">
-                                                <rect key="frame" x="67.333333333333343" y="0.0" width="245.00000000000003" height="77.333333333333329"/>
+                                                <rect key="frame" x="314" y="0.0" width="310" height="105"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fZB-kP-zol" userLabel="Card1">
-                                                        <rect key="frame" x="0.0" y="13.666666666666657" width="50" height="50"/>
+                                                        <rect key="frame" x="0.0" y="27.5" width="50" height="50"/>
                                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
@@ -167,7 +167,7 @@
                                                         </variation>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="URg-dq-bbo" userLabel="Card2">
-                                                        <rect key="frame" x="64.999999999999986" y="13.666666666666657" width="50" height="50"/>
+                                                        <rect key="frame" x="65" y="27.5" width="50" height="50"/>
                                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
@@ -181,7 +181,7 @@
                                                         </variation>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aAm-VX-Ddk" userLabel="Card3">
-                                                        <rect key="frame" x="130" y="13.666666666666657" width="50" height="50"/>
+                                                        <rect key="frame" x="130" y="27.5" width="50" height="50"/>
                                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
@@ -195,7 +195,7 @@
                                                         </variation>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HuA-Zr-gGf" userLabel="Card4">
-                                                        <rect key="frame" x="195" y="13.666666666666657" width="50" height="50"/>
+                                                        <rect key="frame" x="195" y="27.5" width="50" height="50"/>
                                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
@@ -208,14 +208,38 @@
                                                             </mask>
                                                         </variation>
                                                     </imageView>
+                                                    <imageView clipsSubviews="YES" tag="20" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PEW-Lx-6fi" userLabel="Card21">
+                                                        <rect key="frame" x="260" y="27.5" width="50" height="50"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.63529411759999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <gestureRecognizers/>
+                                                    </imageView>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="PEW-Lx-6fi" firstAttribute="width" secondItem="PEW-Lx-6fi" secondAttribute="height" multiplier="1:1" id="XTZ-8G-Rqj"/>
+                                                </constraints>
+                                                <variation key="default">
+                                                    <mask key="subviews">
+                                                        <exclude reference="PEW-Lx-6fi"/>
+                                                    </mask>
+                                                    <mask key="constraints">
+                                                        <exclude reference="XTZ-8G-Rqj"/>
+                                                    </mask>
+                                                </variation>
                                                 <variation key="heightClass=compact" spacing="5"/>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <mask key="subviews">
+                                                        <include reference="PEW-Lx-6fi"/>
+                                                    </mask>
+                                                    <mask key="constraints">
+                                                        <include reference="XTZ-8G-Rqj"/>
+                                                    </mask>
+                                                </variation>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="PNc-qd-d2b" userLabel="Row5-8">
-                                                <rect key="frame" x="67.333333333333343" y="92.333333333333343" width="245.00000000000003" height="77.666666666666657"/>
+                                                <rect key="frame" x="314" y="120" width="310" height="105"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Ge-iX-ara" userLabel="Card5">
-                                                        <rect key="frame" x="0.0" y="14" width="50" height="50"/>
+                                                        <rect key="frame" x="0.0" y="27.5" width="50" height="50"/>
                                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
@@ -229,7 +253,7 @@
                                                         </variation>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="El2-cF-rnN" userLabel="Card6">
-                                                        <rect key="frame" x="64.999999999999986" y="14" width="50" height="50"/>
+                                                        <rect key="frame" x="65" y="27.5" width="50" height="50"/>
                                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
@@ -243,7 +267,7 @@
                                                         </variation>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" tag="6" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dB1-Db-fQG" userLabel="Card7">
-                                                        <rect key="frame" x="130" y="14" width="50" height="50"/>
+                                                        <rect key="frame" x="130" y="27.5" width="50" height="50"/>
                                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
@@ -257,7 +281,7 @@
                                                         </variation>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" tag="7" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MSY-cw-DBX" userLabel="Card8">
-                                                        <rect key="frame" x="195" y="14" width="50" height="50"/>
+                                                        <rect key="frame" x="195" y="27.5" width="50" height="50"/>
                                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
@@ -270,14 +294,38 @@
                                                             </mask>
                                                         </variation>
                                                     </imageView>
+                                                    <imageView clipsSubviews="YES" tag="21" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RL9-4a-b3y" userLabel="Card22">
+                                                        <rect key="frame" x="260" y="27.5" width="50" height="50"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.63529411759999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <gestureRecognizers/>
+                                                    </imageView>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="RL9-4a-b3y" firstAttribute="width" secondItem="RL9-4a-b3y" secondAttribute="height" multiplier="1:1" id="fPz-eD-aca"/>
+                                                </constraints>
+                                                <variation key="default">
+                                                    <mask key="subviews">
+                                                        <exclude reference="RL9-4a-b3y"/>
+                                                    </mask>
+                                                    <mask key="constraints">
+                                                        <exclude reference="fPz-eD-aca"/>
+                                                    </mask>
+                                                </variation>
                                                 <variation key="heightClass=compact" spacing="5"/>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <mask key="subviews">
+                                                        <include reference="RL9-4a-b3y"/>
+                                                    </mask>
+                                                    <mask key="constraints">
+                                                        <include reference="fPz-eD-aca"/>
+                                                    </mask>
+                                                </variation>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Yxc-gQ-1lu" userLabel="Row9-12">
-                                                <rect key="frame" x="67.333333333333343" y="184.99999999999997" width="245.00000000000003" height="77.333333333333343"/>
+                                                <rect key="frame" x="314" y="240" width="310" height="105"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" tag="8" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aJd-6R-LSZ" userLabel="Card9">
-                                                        <rect key="frame" x="0.0" y="13.666666666666686" width="50" height="50"/>
+                                                        <rect key="frame" x="0.0" y="27.5" width="50" height="50"/>
                                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
@@ -291,7 +339,7 @@
                                                         </variation>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" tag="9" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i7k-ZI-tNO" userLabel="Card10">
-                                                        <rect key="frame" x="64.999999999999986" y="13.666666666666686" width="50" height="50"/>
+                                                        <rect key="frame" x="65" y="27.5" width="50" height="50"/>
                                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
@@ -305,7 +353,7 @@
                                                         </variation>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" tag="10" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vbV-6t-D1y" userLabel="Card11">
-                                                        <rect key="frame" x="130" y="13.666666666666686" width="50" height="50"/>
+                                                        <rect key="frame" x="130" y="27.5" width="50" height="50"/>
                                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
@@ -319,7 +367,7 @@
                                                         </variation>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" tag="11" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wzK-Rr-DPy" userLabel="Card12">
-                                                        <rect key="frame" x="195" y="13.666666666666686" width="50" height="50"/>
+                                                        <rect key="frame" x="195" y="27.5" width="50" height="50"/>
                                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
@@ -332,14 +380,38 @@
                                                             </mask>
                                                         </variation>
                                                     </imageView>
+                                                    <imageView clipsSubviews="YES" tag="22" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sod-cF-Ned" userLabel="Card23">
+                                                        <rect key="frame" x="260" y="27.5" width="50" height="50"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.63529411759999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <gestureRecognizers/>
+                                                    </imageView>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Sod-cF-Ned" firstAttribute="width" secondItem="Sod-cF-Ned" secondAttribute="height" multiplier="1:1" id="fac-KI-BuC"/>
+                                                </constraints>
+                                                <variation key="default">
+                                                    <mask key="subviews">
+                                                        <exclude reference="Sod-cF-Ned"/>
+                                                    </mask>
+                                                    <mask key="constraints">
+                                                        <exclude reference="fac-KI-BuC"/>
+                                                    </mask>
+                                                </variation>
                                                 <variation key="heightClass=compact" spacing="5"/>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <mask key="subviews">
+                                                        <include reference="Sod-cF-Ned"/>
+                                                    </mask>
+                                                    <mask key="constraints">
+                                                        <include reference="fac-KI-BuC"/>
+                                                    </mask>
+                                                </variation>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="hm9-UM-XA2" userLabel="Row13-16">
-                                                <rect key="frame" x="67.333333333333343" y="277.33333333333337" width="245.00000000000003" height="77.666666666666686"/>
+                                                <rect key="frame" x="314" y="360" width="310" height="105"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" tag="12" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sav-Vm-kzk" userLabel="Card13">
-                                                        <rect key="frame" x="0.0" y="13.666666666666629" width="50" height="50"/>
+                                                        <rect key="frame" x="0.0" y="27.5" width="50" height="50"/>
                                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
@@ -353,7 +425,7 @@
                                                         </variation>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" tag="13" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FPv-YR-lmD" userLabel="Card14">
-                                                        <rect key="frame" x="64.999999999999986" y="13.666666666666629" width="50" height="50"/>
+                                                        <rect key="frame" x="65" y="27.5" width="50" height="50"/>
                                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
@@ -367,7 +439,7 @@
                                                         </variation>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" tag="14" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eyv-Zv-lbb" userLabel="Card15">
-                                                        <rect key="frame" x="130" y="13.666666666666629" width="50" height="50"/>
+                                                        <rect key="frame" x="130" y="27.5" width="50" height="50"/>
                                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
@@ -381,7 +453,7 @@
                                                         </variation>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" tag="15" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tuk-rM-9R7" userLabel="Card16">
-                                                        <rect key="frame" x="195" y="13.666666666666629" width="50" height="50"/>
+                                                        <rect key="frame" x="195" y="27.5" width="50" height="50"/>
                                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
@@ -394,14 +466,38 @@
                                                             </mask>
                                                         </variation>
                                                     </imageView>
+                                                    <imageView clipsSubviews="YES" tag="23" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VoI-fe-bzG" userLabel="Card24">
+                                                        <rect key="frame" x="260" y="27.5" width="50" height="50"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.63529411759999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <gestureRecognizers/>
+                                                    </imageView>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="VoI-fe-bzG" firstAttribute="width" secondItem="VoI-fe-bzG" secondAttribute="height" multiplier="1:1" id="fUm-lb-szM"/>
+                                                </constraints>
+                                                <variation key="default">
+                                                    <mask key="subviews">
+                                                        <exclude reference="VoI-fe-bzG"/>
+                                                    </mask>
+                                                    <mask key="constraints">
+                                                        <exclude reference="fUm-lb-szM"/>
+                                                    </mask>
+                                                </variation>
                                                 <variation key="heightClass=compact" spacing="5"/>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <mask key="subviews">
+                                                        <include reference="VoI-fe-bzG"/>
+                                                    </mask>
+                                                    <mask key="constraints">
+                                                        <include reference="fUm-lb-szM"/>
+                                                    </mask>
+                                                </variation>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="BGG-V0-pXG" userLabel="Row17-20">
-                                                <rect key="frame" x="67.333333333333343" y="370" width="245.00000000000003" height="77.333333333333314"/>
+                                                <rect key="frame" x="314" y="480" width="310" height="105"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" tag="16" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iq1-FT-eAJ" userLabel="Card17">
-                                                        <rect key="frame" x="0.0" y="13.666666666666629" width="50" height="50"/>
+                                                        <rect key="frame" x="0.0" y="27.5" width="50" height="50"/>
                                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
@@ -415,7 +511,7 @@
                                                         </variation>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" tag="17" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ps1-CR-05c" userLabel="Card18">
-                                                        <rect key="frame" x="64.999999999999986" y="13.666666666666629" width="50" height="50"/>
+                                                        <rect key="frame" x="65" y="27.5" width="50" height="50"/>
                                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
@@ -429,7 +525,7 @@
                                                         </variation>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" tag="18" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e9e-FN-AKo" userLabel="Card19">
-                                                        <rect key="frame" x="130" y="13.666666666666629" width="50" height="50"/>
+                                                        <rect key="frame" x="130" y="27.5" width="50" height="50"/>
                                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
@@ -443,7 +539,7 @@
                                                         </variation>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" tag="19" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HZ6-TD-imb" userLabel="Card20">
-                                                        <rect key="frame" x="195" y="13.666666666666629" width="50" height="50"/>
+                                                        <rect key="frame" x="195" y="27.5" width="50" height="50"/>
                                                         <color key="backgroundColor" red="0.0" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
@@ -456,21 +552,172 @@
                                                             </mask>
                                                         </variation>
                                                     </imageView>
+                                                    <imageView clipsSubviews="YES" tag="24" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D7t-sP-kOD" userLabel="Card25">
+                                                        <rect key="frame" x="260" y="27.5" width="50" height="50"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.63529411759999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <gestureRecognizers/>
+                                                    </imageView>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="D7t-sP-kOD" firstAttribute="width" secondItem="D7t-sP-kOD" secondAttribute="height" multiplier="1:1" id="fLs-bN-Lle"/>
+                                                </constraints>
+                                                <variation key="default">
+                                                    <mask key="subviews">
+                                                        <exclude reference="D7t-sP-kOD"/>
+                                                    </mask>
+                                                    <mask key="constraints">
+                                                        <exclude reference="fLs-bN-Lle"/>
+                                                    </mask>
+                                                </variation>
                                                 <variation key="heightClass=compact" spacing="5"/>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <mask key="subviews">
+                                                        <include reference="D7t-sP-kOD"/>
+                                                    </mask>
+                                                    <mask key="constraints">
+                                                        <include reference="fLs-bN-Lle"/>
+                                                    </mask>
+                                                </variation>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="hZq-to-N7C" userLabel="Row26-30">
+                                                <rect key="frame" x="314" y="600" width="310" height="105"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" tag="25" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ObA-UQ-ibY" userLabel="Card26">
+                                                        <rect key="frame" x="0.0" y="27.5" width="50" height="50"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.63529411759999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <gestureRecognizers/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="ObA-UQ-ibY" secondAttribute="height" multiplier="1:1" id="A3R-dP-00X"/>
+                                                            <constraint firstAttribute="width" secondItem="ObA-UQ-ibY" secondAttribute="height" multiplier="1:1" id="rrh-td-Hfs"/>
+                                                        </constraints>
+                                                        <variation key="heightClass=compact">
+                                                            <mask key="constraints">
+                                                                <exclude reference="A3R-dP-00X"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                            <mask key="constraints">
+                                                                <exclude reference="A3R-dP-00X"/>
+                                                            </mask>
+                                                        </variation>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" tag="26" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bja-9E-qga" userLabel="Card27">
+                                                        <rect key="frame" x="65" y="27.5" width="50" height="50"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.63529411759999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <gestureRecognizers/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="bja-9E-qga" secondAttribute="height" multiplier="1:1" id="Lhg-yT-IVJ"/>
+                                                            <constraint firstAttribute="width" secondItem="bja-9E-qga" secondAttribute="height" multiplier="1:1" id="fOu-D0-G6d"/>
+                                                        </constraints>
+                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                            <mask key="constraints">
+                                                                <exclude reference="fOu-D0-G6d"/>
+                                                            </mask>
+                                                        </variation>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" tag="27" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tpL-1g-MkT" userLabel="Card28">
+                                                        <rect key="frame" x="130" y="27.5" width="50" height="50"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.63529411759999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <gestureRecognizers/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="tpL-1g-MkT" secondAttribute="height" multiplier="1:1" id="gYV-Tp-HsP"/>
+                                                            <constraint firstAttribute="width" secondItem="tpL-1g-MkT" secondAttribute="height" multiplier="1:1" id="vDu-Ia-ijC"/>
+                                                        </constraints>
+                                                        <variation key="heightClass=compact">
+                                                            <mask key="constraints">
+                                                                <exclude reference="vDu-Ia-ijC"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                            <mask key="constraints">
+                                                                <exclude reference="vDu-Ia-ijC"/>
+                                                            </mask>
+                                                        </variation>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" tag="28" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b5d-dM-TKK" userLabel="Card29">
+                                                        <rect key="frame" x="195" y="27.5" width="50" height="50"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.63529411759999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <gestureRecognizers/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="b5d-dM-TKK" secondAttribute="height" multiplier="1:1" id="XTG-u0-6xr"/>
+                                                            <constraint firstAttribute="width" secondItem="b5d-dM-TKK" secondAttribute="height" multiplier="1:1" id="nWj-4Z-HSG"/>
+                                                        </constraints>
+                                                        <variation key="heightClass=compact">
+                                                            <mask key="constraints">
+                                                                <exclude reference="XTG-u0-6xr"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                            <mask key="constraints">
+                                                                <exclude reference="XTG-u0-6xr"/>
+                                                            </mask>
+                                                        </variation>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" tag="29" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eyL-Ts-lcr" userLabel="Card30">
+                                                        <rect key="frame" x="260" y="27.5" width="50" height="50"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.63529411759999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <gestureRecognizers/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="eyL-Ts-lcr" secondAttribute="height" multiplier="1:1" id="ISx-fh-HeC"/>
+                                                            <constraint firstAttribute="width" secondItem="eyL-Ts-lcr" secondAttribute="height" multiplier="1:1" id="LFB-cZ-qUp"/>
+                                                            <constraint firstAttribute="width" secondItem="eyL-Ts-lcr" secondAttribute="height" multiplier="1:1" id="pI4-fj-aE5"/>
+                                                        </constraints>
+                                                        <variation key="heightClass=compact">
+                                                            <mask key="constraints">
+                                                                <exclude reference="pI4-fj-aE5"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                            <mask key="constraints">
+                                                                <exclude reference="ISx-fh-HeC"/>
+                                                                <exclude reference="pI4-fj-aE5"/>
+                                                            </mask>
+                                                        </variation>
+                                                    </imageView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="eyL-Ts-lcr" firstAttribute="width" secondItem="eyL-Ts-lcr" secondAttribute="height" multiplier="1:1" id="U4Z-oc-xp4"/>
+                                                </constraints>
+                                                <variation key="default">
+                                                    <mask key="subviews">
+                                                        <exclude reference="eyL-Ts-lcr"/>
+                                                    </mask>
+                                                    <mask key="constraints">
+                                                        <exclude reference="U4Z-oc-xp4"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=compact" spacing="5"/>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <mask key="subviews">
+                                                        <include reference="eyL-Ts-lcr"/>
+                                                    </mask>
+                                                    <mask key="constraints">
+                                                        <exclude reference="U4Z-oc-xp4"/>
+                                                    </mask>
+                                                </variation>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="hZq-to-N7C"/>
+                                            </mask>
+                                        </variation>
                                         <variation key="heightClass=compact" spacing="5"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <mask key="subviews">
+                                                <include reference="hZq-to-N7C"/>
+                                            </mask>
+                                        </variation>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time: 0:00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="xYN-OW-baA">
-                                        <rect key="frame" x="20" y="19.999999999999996" width="374" height="36.666666666666657"/>
+                                        <rect key="frame" x="20" y="20" width="984" height="55.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
                                         <color key="textColor" red="0.99607843137254903" green="0.41568627450980389" blue="0.45490196078431372" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JdD-GW-fxO">
-                                        <rect key="frame" x="12.333333333333343" y="569.33333333333337" width="389.33333333333326" height="49.666666666666629"/>
+                                        <rect key="frame" x="30.5" y="897" width="963" height="78"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <segments>
                                             <segment title="Robots"/>
@@ -566,15 +813,15 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uaL-zW-LYA" userLabel="LowerSection">
-                                <rect key="frame" x="0.0" y="734" width="414" height="128"/>
+                                <rect key="frame" x="0.0" y="1151" width="1024" height="195"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Horiz Subtraction" translatesAutoresizingMaskIntoConstraints="NO" id="1Na-BJ-J5v">
-                                        <rect key="frame" x="36.666666666666657" y="0.0" width="341" height="128"/>
+                                        <rect key="frame" x="90.5" y="0.0" width="843" height="195"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <variation key="heightClass=compact" image="Vert Subtraction"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlayButton" translatesAutoresizingMaskIntoConstraints="NO" id="bVJ-Ha-rHr">
-                                        <rect key="frame" x="150.66666666666666" y="0.0" width="112.99999999999997" height="128"/>
+                                        <rect key="frame" x="372.5" y="0.0" width="279" height="195"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="BM7-uY-My9" appends="YES" id="YAw-Av-Pvx"/>
@@ -778,6 +1025,36 @@
                         <outletCollection property="CardsPhone" destination="ps1-CR-05c" collectionClass="NSMutableArray" id="fnK-8q-4uU"/>
                         <outletCollection property="CardsPhone" destination="e9e-FN-AKo" collectionClass="NSMutableArray" id="eTF-c7-xlT"/>
                         <outletCollection property="CardsPhone" destination="iq1-FT-eAJ" collectionClass="NSMutableArray" id="6YP-im-Rj4"/>
+                        <outletCollection property="cardsPad" destination="fZB-kP-zol" collectionClass="NSMutableArray" id="7dY-3i-m9M"/>
+                        <outletCollection property="cardsPad" destination="URg-dq-bbo" collectionClass="NSMutableArray" id="pYX-eF-fHd"/>
+                        <outletCollection property="cardsPad" destination="aAm-VX-Ddk" collectionClass="NSMutableArray" id="lmM-Ai-p9M"/>
+                        <outletCollection property="cardsPad" destination="HuA-Zr-gGf" collectionClass="NSMutableArray" id="rXD-gC-2nn"/>
+                        <outletCollection property="cardsPad" destination="PEW-Lx-6fi" collectionClass="NSMutableArray" id="Odb-Tz-Hlv"/>
+                        <outletCollection property="cardsPad" destination="7Ge-iX-ara" collectionClass="NSMutableArray" id="n6a-pB-zJE"/>
+                        <outletCollection property="cardsPad" destination="El2-cF-rnN" collectionClass="NSMutableArray" id="dIF-m6-jGH"/>
+                        <outletCollection property="cardsPad" destination="dB1-Db-fQG" collectionClass="NSMutableArray" id="cHK-MT-cuX"/>
+                        <outletCollection property="cardsPad" destination="MSY-cw-DBX" collectionClass="NSMutableArray" id="sGa-Ze-oJA"/>
+                        <outletCollection property="cardsPad" destination="RL9-4a-b3y" collectionClass="NSMutableArray" id="hg4-04-Rkk"/>
+                        <outletCollection property="cardsPad" destination="aJd-6R-LSZ" collectionClass="NSMutableArray" id="fWV-Vh-IPM"/>
+                        <outletCollection property="cardsPad" destination="i7k-ZI-tNO" collectionClass="NSMutableArray" id="p3E-HC-EYr"/>
+                        <outletCollection property="cardsPad" destination="vbV-6t-D1y" collectionClass="NSMutableArray" id="4Jb-sj-HCQ"/>
+                        <outletCollection property="cardsPad" destination="wzK-Rr-DPy" collectionClass="NSMutableArray" id="3B6-qR-wB5"/>
+                        <outletCollection property="cardsPad" destination="Sod-cF-Ned" collectionClass="NSMutableArray" id="gpp-DM-g3g"/>
+                        <outletCollection property="cardsPad" destination="sav-Vm-kzk" collectionClass="NSMutableArray" id="wbq-0M-cu9"/>
+                        <outletCollection property="cardsPad" destination="FPv-YR-lmD" collectionClass="NSMutableArray" id="uI4-dr-dcB"/>
+                        <outletCollection property="cardsPad" destination="eyv-Zv-lbb" collectionClass="NSMutableArray" id="DXE-k8-KwB"/>
+                        <outletCollection property="cardsPad" destination="tuk-rM-9R7" collectionClass="NSMutableArray" id="shG-SY-1Y7"/>
+                        <outletCollection property="cardsPad" destination="VoI-fe-bzG" collectionClass="NSMutableArray" id="q04-E9-kot"/>
+                        <outletCollection property="cardsPad" destination="iq1-FT-eAJ" collectionClass="NSMutableArray" id="a2q-ZJ-dVQ"/>
+                        <outletCollection property="cardsPad" destination="ps1-CR-05c" collectionClass="NSMutableArray" id="7lx-dr-73y"/>
+                        <outletCollection property="cardsPad" destination="e9e-FN-AKo" collectionClass="NSMutableArray" id="c9Z-fB-XBc"/>
+                        <outletCollection property="cardsPad" destination="HZ6-TD-imb" collectionClass="NSMutableArray" id="6Eb-6D-rTf"/>
+                        <outletCollection property="cardsPad" destination="D7t-sP-kOD" collectionClass="NSMutableArray" id="pco-xl-83o"/>
+                        <outletCollection property="cardsPad" destination="ObA-UQ-ibY" collectionClass="NSMutableArray" id="YUO-nc-8XF"/>
+                        <outletCollection property="cardsPad" destination="bja-9E-qga" collectionClass="NSMutableArray" id="1UD-ff-ppx"/>
+                        <outletCollection property="cardsPad" destination="tpL-1g-MkT" collectionClass="NSMutableArray" id="dn9-VU-FJ5"/>
+                        <outletCollection property="cardsPad" destination="b5d-dM-TKK" collectionClass="NSMutableArray" id="jsx-PE-DOO"/>
+                        <outletCollection property="cardsPad" destination="eyL-Ts-lcr" collectionClass="NSMutableArray" id="mzt-F2-Flv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -787,15 +1064,15 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="134.48275862068965" y="130.40000000000001"/>
+            <point key="canvasLocation" x="134.1796875" y="130.01464128843338"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Horiz Subtraction" width="340.66665649414062" height="60"/>
+        <image name="Horiz Subtraction" width="340.5" height="60"/>
         <image name="HorizontalBackBanner" width="375" height="100"/>
-        <image name="Liquid-Cheese" width="1600.3333740234375" height="812"/>
-        <image name="MainLogo" width="119.33333587646484" height="85.333335876464844"/>
+        <image name="Liquid-Cheese" width="1600.5" height="812"/>
+        <image name="MainLogo" width="119.5" height="85.5"/>
         <image name="PlayButton" width="136" height="136"/>
-        <image name="Vert Subtraction" width="60" height="340.66665649414062"/>
+        <image name="Vert Subtraction" width="60" height="340.5"/>
     </resources>
 </document>

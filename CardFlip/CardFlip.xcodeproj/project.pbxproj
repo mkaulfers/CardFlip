@@ -16,6 +16,7 @@
 		AEE087B523D547DD00758140 /* buttonHit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AEE087B223D547DD00758140 /* buttonHit.mp3 */; };
 		AEE087B623D547DD00758140 /* backgroundJam.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AEE087B323D547DD00758140 /* backgroundJam.mp3 */; };
 		AEE087B723D547DD00758140 /* cardFlip.wav in Resources */ = {isa = PBXBuildFile; fileRef = AEE087B423D547DD00758140 /* cardFlip.wav */; };
+		AEF3D3CB23E63C5B005474D5 /* laserSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = AEF3D3CA23E63C5B005474D5 /* laserSound.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		AEE087B223D547DD00758140 /* buttonHit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buttonHit.mp3; sourceTree = "<group>"; };
 		AEE087B323D547DD00758140 /* backgroundJam.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundJam.mp3; sourceTree = "<group>"; };
 		AEE087B423D547DD00758140 /* cardFlip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cardFlip.wav; sourceTree = "<group>"; };
+		AEF3D3CA23E63C5B005474D5 /* laserSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = laserSound.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				AEE087B323D547DD00758140 /* backgroundJam.mp3 */,
 				AEE087B223D547DD00758140 /* buttonHit.mp3 */,
 				AEE087B423D547DD00758140 /* cardFlip.wav */,
+				AEF3D3CA23E63C5B005474D5 /* laserSound.wav */,
 			);
 			path = CardFlip;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 				AEE087B723D547DD00758140 /* cardFlip.wav in Resources */,
 				AE65521623D260D7002C78B1 /* Assets.xcassets in Resources */,
 				AE65521423D260D5002C78B1 /* Main.storyboard in Resources */,
+				AEF3D3CB23E63C5B005474D5 /* laserSound.wav in Resources */,
 				AEE087B623D547DD00758140 /* backgroundJam.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
