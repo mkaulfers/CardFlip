@@ -27,7 +27,7 @@ ____
 
 # ART, Design, Details!
 
-[Imgur](https://i.imgur.com/adBMBEN.jpg)
+![Imgur](https://i.imgur.com/adBMBEN.jpg)
 (Image Above: Card examples included in app.)
 
 ### Gameplay Elements
