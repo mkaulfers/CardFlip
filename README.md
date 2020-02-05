@@ -27,7 +27,7 @@ ____
 
 # ART, Design, Details!
 
-![Cool Icons](https://imgur.com/a/QZj3er5.jpg)
+[Imgur](https://i.imgur.com/adBMBEN.jpg)
 (Image Above: Card examples included in app.)
 
 ### Gameplay Elements
